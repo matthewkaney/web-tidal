@@ -9,7 +9,7 @@ import {
   Substitution,
   unify,
 } from "./Utilities";
-import { Context, makeContext, MonoType } from "./Types";
+import { TypeChecker as TC, Context, makeContext, MonoType } from "./Types";
 import { TokenType } from "../scan/TokenType";
 import {
   TypeAnnotation,
@@ -43,7 +43,7 @@ export const W = (
       switch (typeof expr.value) {
         case "string": {
           const type: MonoType = {
-            type: "ty-app",
+            type: TC.Type.TyCon,
             C: "Pattern",
             mus: [newTypeVar()],
           };
@@ -51,14 +51,14 @@ export const W = (
         }
         case "number": {
           const type: MonoType = {
-            type: "ty-app",
+            type: TC.Type.TyCon,
             C: "Pattern",
-            mus: [{ type: "ty-app", C: "Number", mus: [] }],
+            mus: [{ type: TC.Type.TyCon, C: "Number", mus: [] }],
           };
           return [makeSubstitution({}), type, [new TypeInfo(expr, type)]];
         }
         case "boolean": {
-          const type: MonoType = { type: "ty-app", C: "Boolean", mus: [] };
+          const type: MonoType = { type: TC.Type.TyCon, C: "Boolean", mus: [] };
           return [makeSubstitution({}), type, [new TypeInfo(expr, type)]];
         }
       }
@@ -160,9 +160,9 @@ function InferTypeAbs(
     s1,
     t1
       ? s1({
-          type: "ty-app",
-          C: "->",
-          mus: [beta, t1],
+          type: TC.Type.FnType,
+          in: beta,
+          out: t1,
         })
       : null,
     a1,
@@ -182,9 +182,10 @@ function InferTypeApp(
 
   if (t1 && t2) {
     const s3 = unify(s2(t1), {
-      type: "ty-app",
-      C: "->",
-      mus: [t2, beta],
+      type: TC.Type.FnType,
+
+      in: t2,
+      out: beta,
     });
 
     if (s3) {
@@ -196,8 +197,8 @@ function InferTypeApp(
     } else {
       let fType = s2(t1);
 
-      if (fType.type === "ty-app" && fType.C === "->") {
-        a3.push(new UnificationError(expr2, fType.mus[0], t2));
+      if (fType.type === TC.Type.FnType) {
+        a3.push(new UnificationError(expr2, fType.in, t2));
       } else {
         a3.push(new ApplicationError(expr2));
       }

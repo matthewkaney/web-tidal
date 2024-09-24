@@ -1,5 +1,5 @@
 import { Expr } from "../parse/Expr";
-import { MonoType, Context } from "./Types";
+import { TypeChecker as TC, MonoType, Context } from "./Types";
 import { newTypeVar, instantiate } from "./Utilities";
 
 type Constraint = Constraint.Eq | Constraint.Dict;
@@ -44,20 +44,20 @@ export function generateConstraints(
       switch (typeof expr.value) {
         case "string":
           type = {
-            type: "ty-app",
+            type: TC.Type.TyCon,
             C: "Pattern",
             mus: [newTypeVar()],
           };
           break;
         case "number":
           type = {
-            type: "ty-app",
+            type: TC.Type.TyCon,
             C: "Pattern",
-            mus: [{ type: "ty-app", C: "Number", mus: [] }],
+            mus: [{ type: TC.Type.TyCon, C: "Number", mus: [] }],
           };
           break;
         case "boolean":
-          type = { type: "ty-app", C: "Boolean", mus: [] };
+          type = { type: TC.Type.TyCon, C: "Boolean", mus: [] };
           break;
       }
       return [new Map([[expr, type]]), []];
@@ -89,7 +89,7 @@ export function generateConstraints(
           {
             type: Constraint.Type.Eq,
             lhs: lType,
-            rhs: { type: "ty-app", C: "->", mus: [rType, type] },
+            rhs: { type: TC.Type.FnType, in: rType, out: type },
           },
         ],
       ];
@@ -119,9 +119,9 @@ export function generateConstraints(
             type: Constraint.Type.Eq,
             lhs: oType,
             rhs: {
-              type: "ty-app",
-              C: "->",
-              mus: [lType, { type: "ty-app", C: "->", mus: [rType, type] }],
+              type: TC.Type.FnType,
+              in: lType,
+              out: { type: TC.Type.FnType, in: rType, out: type },
             },
           },
         ],

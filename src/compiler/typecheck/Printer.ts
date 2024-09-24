@@ -1,28 +1,29 @@
-import { PolyType } from "./Types";
+import { TypeChecker as TC, PolyType } from "./Types";
 
 export function printType(type: PolyType, parenthesize = false) {
   switch (type.type) {
-    case "ty-var":
+    case TC.Type.TyVar:
       return type.a;
-    case "ty-app":
+    case TC.Type.TyCon:
       if (type.mus.length === 0) {
         return type.C;
-      } else if (type.C === "->") {
-        return parens(
-          `${printType(
-            type.mus[0],
-            type.mus[0].type === "ty-app" && type.mus[0].C === "->"
-          )} -> ${printType(type.mus[1])}`,
-          parenthesize
-        );
       } else {
         return parens(
           `${type.C} ${type.mus.map((t) => printType(t, true)).join(" ")}`,
           parenthesize
         );
       }
-    case "ty-quantifier":
+    case TC.Type.FnType:
+      return parens(
+        `${printType(type.in, type.in.type === TC.Type.FnType)} -> ${printType(
+          type.out
+        )}`,
+        parenthesize
+      );
+    case TC.Type.TyQuant:
       return parens(`forall ${type.a}. ${printType(type.sigma)}`, parenthesize);
+    default:
+      return type satisfies never;
   }
 }
 

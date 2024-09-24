@@ -9,27 +9,45 @@ import { Token } from "../scan/Token";
 // sigma ::= mu
 //         | Va. sigma
 
-export type MonoType = TypeVariable | TypeFunctionApplication;
+export type MonoType =
+  | TypeChecker.TypeVariable
+  | TypeChecker.FunctionType
+  | TypeChecker.TypeConstructor;
 
-export type PolyType = MonoType | TypeQuantifier;
+export type PolyType = MonoType | TypeChecker.TypeQuantifier;
 
-export interface TypeCommon {}
+export namespace TypeChecker {
+  export enum Type {
+    TyVar = "Type Variable",
+    TyCon = "Type Constructor",
+    FnType = "Function Type",
+    TyQuant = "Type Quantifier",
+  }
 
-export interface TypeVariable extends TypeCommon {
-  type: "ty-var";
-  a: string;
-}
+  export interface TypeCommon {}
 
-export interface TypeFunctionApplication extends TypeCommon {
-  type: "ty-app";
-  C: string;
-  mus: MonoType[];
-}
+  export interface TypeVariable extends TypeCommon {
+    type: Type.TyVar;
+    a: string;
+  }
 
-export interface TypeQuantifier extends TypeCommon {
-  type: "ty-quantifier";
-  a: string;
-  sigma: PolyType;
+  export interface TypeConstructor extends TypeCommon {
+    type: Type.TyCon;
+    C: string;
+    mus: MonoType[];
+  }
+
+  export interface FunctionType extends TypeCommon {
+    type: Type.FnType;
+    in: MonoType;
+    out: MonoType;
+  }
+
+  export interface TypeQuantifier extends TypeCommon {
+    type: Type.TyQuant;
+    a: string;
+    sigma: PolyType;
+  }
 }
 
 // Contexts
