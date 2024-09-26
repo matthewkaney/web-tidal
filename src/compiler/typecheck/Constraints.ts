@@ -175,3 +175,38 @@ export function generateConstraints(
       return expr satisfies never;
   }
 }
+
+export function typeEquality(type1: MonoType, type2: MonoType) {
+  if (type1.type === TC.Type.TyVar && type2.type === TC.Type.TyVar) {
+    return type1.a === type2.a;
+  }
+
+  if (type1.type === TC.Type.TyCon && type2.type === TC.Type.TyCon) {
+    return (
+      type1.C === type2.C &&
+      type1.mus.length === type2.mus.length &&
+      type1.mus.every((ty, i) => typeEquality(ty, type2.mus[i]))
+    );
+  }
+
+  if (type1.type === TC.Type.FnType && type2.type === TC.Type.FnType) {
+    return (
+      typeEquality(type1.in, type2.in) && typeEquality(type1.out, type2.out)
+    );
+  }
+
+  return false;
+}
+
+export function solveConstraint(ct: Constraint) {
+  switch (ct.type) {
+    case Constraint.Type.Eq:
+      try {
+      } catch (e) {}
+      return;
+    case Constraint.Type.Dict:
+      // Do something
+      throw new Error("Dictionary constraints aren't implemented yet");
+      return;
+  }
+}
