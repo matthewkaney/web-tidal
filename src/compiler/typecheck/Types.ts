@@ -24,6 +24,16 @@ export namespace TypeChecker {
     TyQuant = "Type Quantifier",
   }
 
+  export interface QualifiedType {
+    preds: [Predicate];
+    type: MonoType;
+  }
+
+  export interface Predicate {
+    isIn: string;
+    type: MonoType;
+  }
+
   export interface TypeCommon {}
 
   export interface TypeVariable extends TypeCommon {
