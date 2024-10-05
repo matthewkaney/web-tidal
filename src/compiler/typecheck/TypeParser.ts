@@ -1,7 +1,7 @@
 import { TokenType } from "../scan/TokenType";
 import { BaseParser } from "../parse/BaseParser";
 
-import { MonoType, PolyType, makeContext } from "./Types";
+import { TypeChecker as TC, MonoType, PolyType, makeContext } from "./Types";
 import { generalise } from "./Utilities";
 
 export class TypeParser extends BaseParser<PolyType> {
@@ -16,9 +16,9 @@ export class TypeParser extends BaseParser<PolyType> {
     if (this.match(TokenType.Arrow)) {
       let returnType = this.functionType();
       return {
-        type: "ty-app",
-        C: "->",
-        mus: [paramType, returnType],
+        type: TC.Type.FnType,
+        in: paramType,
+        out: returnType,
       };
     } else {
       return paramType;
@@ -30,7 +30,7 @@ export class TypeParser extends BaseParser<PolyType> {
     let constructor = this.typeIdentifier();
 
     if (constructor !== null) {
-      if (constructor.type === "ty-app") {
+      if (constructor.type === TC.Type.TyCon) {
         let mus: MonoType[] = [];
         let param: MonoType;
 
@@ -60,7 +60,7 @@ export class TypeParser extends BaseParser<PolyType> {
         TokenType.RightBracket,
         "Expected right bracket at end of list type."
       );
-      return { type: "ty-app", C: "List", mus: [listParam] };
+      return { type: TC.Type.TyCon, C: "List", mus: [listParam] };
     } else if (this.match(TokenType.LeftParen)) {
       // TODO: Implement
       // if (this.match(TokenType.RightParen)) {
@@ -83,13 +83,13 @@ export class TypeParser extends BaseParser<PolyType> {
       let identifier = this.previous();
       if (identifier.lexeme[0] >= "A" && identifier.lexeme[0] <= "Z") {
         return {
-          type: "ty-app",
+          type: TC.Type.TyCon,
           C: identifier.lexeme,
           mus: [],
         };
       } else {
         return {
-          type: "ty-var",
+          type: TC.Type.TyVar,
           a: identifier.lexeme,
         };
       }

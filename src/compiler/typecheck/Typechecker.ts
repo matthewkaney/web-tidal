@@ -10,6 +10,8 @@ import { makeContext, PolyType } from "./Types";
 import { W } from "./Inference";
 import { UnificationError } from "./Utilities";
 
+import { generateConstraints } from "./Constraints";
+
 export class TypeChecker {
   private environment: { [name: string]: PolyType } = {};
 
@@ -40,6 +42,11 @@ export class TypeChecker {
     try {
       switch (statement.type) {
         case Stmt.Type.Expression:
+          const [_, constraints] = generateConstraints(
+            statement.expression,
+            makeContext(this.environment)
+          );
+          console.log(constraints);
           return W(makeContext(this.environment), statement.expression);
         default:
           return statement.type satisfies never;

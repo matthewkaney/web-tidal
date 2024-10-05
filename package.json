@@ -1,7 +1,8 @@
 {
   "scripts": {
     "dev": "parcel src/index.html",
-    "build": "parcel build src/index.html --public-url /web-tidal --dist-dir dist/web-tidal --no-scope-hoist"
+    "build": "parcel build src/index.html --public-url /web-tidal --dist-dir dist/web-tidal --no-scope-hoist",
+    "typecheck": "tsc --noEmit"
   },
   "type": "module",
   "devDependencies": {
