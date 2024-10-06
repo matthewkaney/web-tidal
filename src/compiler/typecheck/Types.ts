@@ -24,14 +24,19 @@ export namespace TypeChecker {
     TyQuant = "Type Quantifier",
   }
 
-  export interface QualifiedType {
-    preds: [Predicate];
-    type: MonoType;
+  export interface Qualified<T> {
+    preds: Predicate[];
+    head: T;
   }
 
   export interface Predicate {
     isIn: string;
     type: MonoType;
+  }
+
+  export interface Instance {
+    predicate: Qualified<Predicate>;
+    functions: { [name: string]: any };
   }
 
   export interface TypeCommon {}

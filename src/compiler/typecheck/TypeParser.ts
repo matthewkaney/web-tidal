@@ -10,6 +10,34 @@ export class TypeParser extends BaseParser<PolyType> {
     return generalise(makeContext({}), this.functionType());
   }
 
+  parseClass() {
+    return this.typeConstructor();
+  }
+
+  parseQualifiedType() {
+    // TODO: generalize
+    return this.qualifiedType();
+  }
+
+  private qualifiedType(): TC.Qualified<MonoType> {
+    const context = this.functionType();
+
+    if (this.match(TokenType.DoubleArrow)) {
+      if (context.type !== TC.Type.TyCon)
+        throw new Error("Type constraint must be a type constructor");
+
+      return {
+        preds: context.mus.map((type) => ({ isIn: context.C, type })),
+        head: this.functionType(),
+      };
+    } else {
+      return {
+        preds: [],
+        head: context,
+      };
+    }
+  }
+
   private functionType(): MonoType {
     let paramType = this.typeConstructor();
 

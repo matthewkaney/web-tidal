@@ -1,22 +1,16 @@
 import { Scanner } from "../scan/Scanner";
 import { ErrorReporter } from "../parse/Reporter";
 
-import { TypeParser } from "../typecheck/TypeParser";
-import { TypeVariable, MonoType, PolyType } from "../typecheck/Types";
+import { TypeParser } from "./TypeParser";
+import { TypeChecker as TC, MonoType, PolyType } from "./Types";
 
 type ClassInterface = { [name: string]: { type: PolyType; value?: any } };
 
 export interface Class {
   name: string;
   superClass: string[];
-  variable: TypeVariable;
+  variable: TC.TypeVariable;
   functions: ClassInterface;
-}
-
-export interface Instance {
-  class: string;
-  type: MonoType;
-  functions: { [name: string]: any };
 }
 
 export function defineClass(
@@ -25,17 +19,21 @@ export function defineClass(
   functions: { [name: string]: string | { type: string; value?: any } }
 ): Class {
   let tokens = new Scanner(name).scanTokens();
-  let classType = new TypeParser(tokens, new ErrorReporter()).parse();
+  let classType = new TypeParser(tokens, new ErrorReporter()).parseClass();
 
-  if (classType.type !== "ty-app")
-    throw new Error("Class must be defined as a type constructor");
+  if (classType.type !== TC.Type.TyCon)
+    throw new Error(
+      `Class must be defined as a type constructor: ${JSON.stringify(
+        classType
+      )}`
+    );
 
   let {
     C: className,
     mus: [classTypeVariable],
   } = classType;
 
-  if (!classTypeVariable || classTypeVariable.type !== "ty-var")
+  if (!classTypeVariable || classTypeVariable.type !== TC.Type.TyVar)
     throw new Error("Class must have type variable");
 
   let classFunctions: ClassInterface = {};
@@ -62,19 +60,27 @@ export function defineClass(
 export function defineInstance(
   name: string,
   functions: { [name: string]: any } = {}
-): Instance {
+): TC.Instance {
   let tokens = new Scanner(name).scanTokens();
-  let instanceType = new TypeParser(tokens, new ErrorReporter()).parse();
+  let { head, preds } = new TypeParser(
+    tokens,
+    new ErrorReporter()
+  ).parseQualifiedType();
 
-  if (instanceType.type !== "ty-app")
+  if (head.type !== TC.Type.TyCon)
     throw new Error("Instance must be defined as a type constructor");
 
-  if (instanceType.mus.length !== 1)
+  if (head.mus.length !== 1)
     throw new Error("Instance must have once type parameter");
 
   return {
-    class: instanceType.C,
-    type: instanceType.mus[0],
+    predicate: {
+      preds,
+      head: {
+        isIn: head.C,
+        type: head.mus[0],
+      },
+    },
     functions,
   };
 }
@@ -94,6 +100,15 @@ let basicEq = {
 
 let EqNumber = defineInstance("Eq Number", basicEq);
 let EqString = defineInstance("Eq String", basicEq);
+
+let EqList = defineInstance("Eq a => Eq [a]", {
+  "==": (as, bs) =>
+    as.length === bs.length && as.every((a, index) => a === bs[index]),
+  "/=": (as, bs) =>
+    as.length !== bs.length || as.some((a, index) => a !== bs[index]),
+});
+
+console.log(EqList);
 
 // Ord
 let Ord = defineClass("Ord a", ["Eq"], {

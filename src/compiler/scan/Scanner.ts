@@ -82,7 +82,13 @@ export class Scanner {
         break;
 
       case "=":
-        this.addToken(this.match("=") ? TokenType.EqualEqual : TokenType.Equal);
+        this.addToken(
+          this.match("=")
+            ? TokenType.EqualEqual
+            : this.match(">")
+            ? TokenType.DoubleArrow
+            : TokenType.Equal
+        );
         break;
 
       case "<":

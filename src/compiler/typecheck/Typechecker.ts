@@ -10,6 +10,9 @@ import { makeContext, PolyType } from "./Types";
 import { W } from "./Inference";
 import { UnificationError } from "./Utilities";
 
+// For now, just check that class instances work
+import "./TypeClasses";
+
 import { generateConstraints } from "./Constraints";
 
 export class TypeChecker {
