@@ -9,18 +9,12 @@ import { Token } from "../scan/Token";
 // sigma ::= mu
 //         | Va. sigma
 
-export type MonoType =
-  | TypeChecker.TypeVariable
-  | TypeChecker.FunctionType
-  | TypeChecker.TypeConstructor;
-
-export type PolyType = MonoType | TypeChecker.TypeQuantifier;
-
 export namespace TypeChecker {
   export enum Type {
     TyVar = "Type Variable",
     TyCon = "Type Constructor",
     FnType = "Function Type",
+    TyQual = "Qualified Type",
     TyQuant = "Type Quantifier",
   }
 
@@ -28,6 +22,13 @@ export namespace TypeChecker {
     preds: Predicate[];
     head: T;
   }
+
+  export type MonoType =
+    | TypeChecker.TypeVariable
+    | TypeChecker.FunctionType
+    | TypeChecker.TypeConstructor;
+
+  export type PolyType = TypeChecker.QualifiedType | TypeChecker.TypeQuantifier;
 
   export interface Predicate {
     isIn: string;
@@ -58,6 +59,10 @@ export namespace TypeChecker {
     out: MonoType;
   }
 
+  export interface QualifiedType extends TypeCommon, Qualified<MonoType> {
+    type: Type.TyQual;
+  }
+
   export interface TypeQuantifier extends TypeCommon {
     type: Type.TyQuant;
     a: string;
@@ -70,12 +75,12 @@ export namespace TypeChecker {
 export const ContextMarker = Symbol();
 export type Context = {
   [ContextMarker]: boolean;
-  [variable: string]: PolyType;
+  [variable: string]: TypeChecker.PolyType;
 };
 
 export const makeContext = (raw: {
   [ContextMarker]?: boolean;
-  [variable: string]: PolyType;
+  [variable: string]: TypeChecker.PolyType;
 }): Context => {
   raw[ContextMarker] = true;
   return raw as Context;

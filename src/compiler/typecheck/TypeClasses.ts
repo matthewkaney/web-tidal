@@ -2,15 +2,16 @@ import { Scanner } from "../scan/Scanner";
 import { ErrorReporter } from "../parse/Reporter";
 
 import { TypeParser } from "./TypeParser";
-import { TypeChecker as TC, MonoType, PolyType } from "./Types";
+import { TypeChecker as TC } from "./Types";
 
-type ClassInterface = { [name: string]: { type: PolyType; value?: any } };
+type ClassInterface = { [name: string]: { type: TC.PolyType; value?: any } };
 
 export interface Class {
   name: string;
   superClass: string[];
   variable: TC.TypeVariable;
   functions: ClassInterface;
+  instances: TC.Instance[];
 }
 
 export function defineClass(
@@ -54,6 +55,7 @@ export function defineClass(
     superClass,
     variable: classTypeVariable,
     functions: classFunctions,
+    instances: [],
   };
 }
 
@@ -84,6 +86,33 @@ export function defineInstance(
     functions,
   };
 }
+
+export type ClassEnv = { [id: string]: Class };
+
+// Add some things from Typing Haskell in Haskell
+
+// entail :: ClassEnv → [Pred] → Pred → Bool
+// function entail(env: ClassEnv, ps: TC.Predicate[], p: TC.Predicate) {
+//   return ps.map()
+// }
+
+// = any (p ‘elem‘) (map (bySuper ce) ps) ||
+// case byInst ce p of
+// Nothing → False
+// Just qs → all (entail ce ps) qs
+
+// bySuper :: ClassEnv → Pred → [Pred]
+// bySuper ce p@(IsIn i t)
+// = p : concat [bySuper ce (IsIn i0
+// t) | i
+// 0 ← super ce i]
+
+//byInst :: ClassEnv → Pred → Maybe [Pred]
+// function byInst(ce: ClassEnv, { isIn, type}: TC.Predicate) {}
+
+// } = msum [tryInst it | it ← insts ce i]
+// where tryInst (ps :⇒ h) = do u ← matchPred h p
+// Just (map (apply u) ps)
 
 // A few example type class declarations for testing
 

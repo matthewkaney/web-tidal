@@ -1,5 +1,5 @@
 import { Expr } from "../parse/Expr";
-import { TypeChecker as TC, MonoType, Context } from "./Types";
+import { TypeChecker as TC, Context } from "./Types";
 import { newTypeVar, instantiate } from "./Utilities";
 
 type Constraint = Constraint.Eq | Constraint.Dict;
@@ -14,8 +14,8 @@ export namespace Constraint {
 
   export interface Eq extends Common {
     type: Type.Eq;
-    lhs: MonoType;
-    rhs: MonoType;
+    lhs: TC.MonoType;
+    rhs: TC.MonoType;
   }
 
   export interface Dict extends Common {
@@ -23,7 +23,7 @@ export namespace Constraint {
   }
 }
 
-type TypeAnnotatedTree = Map<Expr, MonoType>;
+type TypeAnnotatedTree = Map<Expr, TC.MonoType>;
 
 export function generateConstraints(
   expr: Expr,
@@ -40,7 +40,7 @@ export function generateConstraints(
     }
 
     case Expr.Type.Literal: {
-      let type: MonoType;
+      let type: TC.MonoType;
       switch (typeof expr.value) {
         case "string":
           type = {
@@ -176,7 +176,7 @@ export function generateConstraints(
   }
 }
 
-export function typeEquality(type1: MonoType, type2: MonoType) {
+export function typeEquality(type1: TC.MonoType, type2: TC.MonoType) {
   if (type1.type === TC.Type.TyVar && type2.type === TC.Type.TyVar) {
     return type1.a === type2.a;
   }
