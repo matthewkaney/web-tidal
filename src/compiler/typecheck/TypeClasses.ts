@@ -89,6 +89,34 @@ export function defineInstance(
 
 export type ClassEnv = { [id: string]: Class };
 
+export function addInstance(env: ClassEnv, inst: TC.Instance): ClassEnv {
+  let {
+    predicate: { head: pred },
+  } = inst;
+  let className = pred.isIn;
+
+  if (!(className in env)) {
+    throw new Error(`Can't add instance of undefined class "${className}"`);
+  }
+
+  let { [className]: classDef, ...rest } = env;
+
+  if (
+    classDef.instances
+      .map((i) => i.predicate.head)
+      .some((pred2) => TC.overlap(pred, pred2))
+  ) {
+    throw new Error(
+      `Can't add instance because it overlaps with existing instances`
+    );
+  }
+
+  return {
+    [className]: { ...classDef, instances: [...classDef.instances, inst] },
+    ...rest,
+  };
+}
+
 // Add some things from Typing Haskell in Haskell
 
 // entail :: ClassEnv → [Pred] → Pred → Bool

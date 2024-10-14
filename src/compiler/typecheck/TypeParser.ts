@@ -1,13 +1,13 @@
 import { TokenType } from "../scan/TokenType";
 import { BaseParser } from "../parse/BaseParser";
 
-import { TypeChecker as TC, MonoType, PolyType, makeContext } from "./Types";
+import { TypeChecker as TC, Context } from "./Types";
 import { generalise } from "./Utilities";
 
-export class TypeParser extends BaseParser<PolyType> {
+export class TypeParser extends BaseParser<TC.PolyType> {
   parse() {
     // TODO: Check if we've reached the end
-    return generalise(makeContext({}), this.functionType());
+    return generalise(Context.asContext({}), this.functionType());
   }
 
   parseClass() {
@@ -19,7 +19,7 @@ export class TypeParser extends BaseParser<PolyType> {
     return this.qualifiedType();
   }
 
-  private qualifiedType(): TC.Qualified<MonoType> {
+  private qualifiedType(): TC.Qualified<TC.MonoType> {
     const context = this.functionType();
 
     if (this.match(TokenType.DoubleArrow)) {
@@ -38,7 +38,7 @@ export class TypeParser extends BaseParser<PolyType> {
     }
   }
 
-  private functionType(): MonoType {
+  private functionType(): TC.MonoType {
     let paramType = this.typeConstructor();
 
     if (this.match(TokenType.Arrow)) {
@@ -53,14 +53,14 @@ export class TypeParser extends BaseParser<PolyType> {
     }
   }
 
-  private typeConstructor(): MonoType {
+  private typeConstructor(): TC.MonoType {
     // If there's a type function identifier
     let constructor = this.typeIdentifier();
 
     if (constructor !== null) {
       if (constructor.type === TC.Type.TyCon) {
-        let mus: MonoType[] = [];
-        let param: MonoType;
+        let mus: TC.MonoType[] = [];
+        let param: TC.MonoType;
 
         while ((param = this.typeTerm())) {
           mus.push(param);
@@ -81,7 +81,7 @@ export class TypeParser extends BaseParser<PolyType> {
     }
   }
 
-  private typeTerm(): MonoType | null {
+  private typeTerm(): TC.MonoType | null {
     if (this.match(TokenType.LeftBracket)) {
       let listParam = this.functionType();
       this.consume(
@@ -106,7 +106,7 @@ export class TypeParser extends BaseParser<PolyType> {
     }
   }
 
-  private typeIdentifier(): MonoType | null {
+  private typeIdentifier(): TC.MonoType | null {
     if (this.match(TokenType.Identifier)) {
       let identifier = this.previous();
       if (identifier.lexeme[0] >= "A" && identifier.lexeme[0] <= "Z") {

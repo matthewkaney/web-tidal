@@ -1,26 +1,19 @@
 import { printType } from "./Printer";
-import {
-  TypeChecker as TC,
-  Context,
-  isContext,
-  makeContext,
-  MonoType,
-  PolyType,
-} from "./Types";
+import { TypeChecker as TC, Context, Type } from "./Types";
 
 // substitutions
 
 export type Substitution = {
   type: "substitution";
-  (m: MonoType): MonoType;
-  (t: PolyType): PolyType;
+  (m: TC.MonoType): TC.MonoType;
+  (t: TC.PolyType): TC.PolyType;
   (c: Context): Context;
   (s: Substitution): Substitution;
-  raw: { [typeVariables: string]: MonoType };
+  raw: { [typeVariables: string]: TC.MonoType };
 };
 
 export const makeSubstitution = (raw: Substitution["raw"]): Substitution => {
-  const fn = ((arg: MonoType | PolyType | Context | Substitution) => {
+  const fn = ((arg: TC.MonoType | TC.PolyType | Context | Substitution) => {
     if (arg.type === "substitution") return combine(fn, arg);
     return apply(fn, arg);
   }) as Substitution;
@@ -29,48 +22,19 @@ export const makeSubstitution = (raw: Substitution["raw"]): Substitution => {
   return fn;
 };
 
-function apply<T extends MonoType | PolyType | Context>(
+function apply<T extends TC.MonoType | TC.PolyType | Context>(
   substitution: Substitution,
   value: T
 ): T;
 function apply(
   s: Substitution,
-  value: MonoType | PolyType | Context
-): MonoType | PolyType | Context {
-  if (isContext(value)) {
-    return makeContext(
-      Object.fromEntries(
-        Object.entries(value).map(([k, v]) => [k, apply(s, v)])
-      )
-    );
+  value: TC.MonoType | TC.PolyType | Context
+): TC.MonoType | TC.PolyType | Context {
+  if (Context.is(value)) {
+    return Context.apply(s, value);
   }
 
-  if (value.type === TC.Type.TyVar) {
-    if (s.raw[value.a]) return s.raw[value.a];
-    return value;
-  }
-
-  if (value.type === TC.Type.TyCon) {
-    return { ...value, mus: value.mus.map((m) => apply(s, m)) };
-  }
-
-  if (value.type === TC.Type.FnType) {
-    return { ...value, in: apply(s, value.in), out: apply(s, value.out) };
-  }
-
-  if (value.type === TC.Type.TyQuant) {
-    const substitutionWithoutQuantifier = makeSubstitution(
-      Object.fromEntries(
-        Object.entries(s.raw).filter(([k, v]) => k !== value.a)
-      )
-    );
-    return {
-      ...value,
-      sigma: apply(substitutionWithoutQuantifier, value.sigma),
-    };
-  }
-
-  throw new Error("Unknown argument passed to substitution");
+  return Type.apply(s, value);
 }
 
 const combine = (s1: Substitution, s2: Substitution): Substitution => {
@@ -92,9 +56,9 @@ export const newTypeVar = (): TC.TypeVariable => ({
 // Va. Vb. a -> b
 // t0 -> t1
 export const instantiate = (
-  type: PolyType,
+  type: TC.PolyType,
   mappings: Map<string, TC.TypeVariable> = new Map()
-): MonoType => {
+): TC.MonoType => {
   if (type.type === TC.Type.TyVar) {
     return mappings.get(type.a) ?? type;
   }
@@ -120,9 +84,9 @@ export const instantiate = (
 };
 
 // generalise
-export const generalise = (ctx: Context, type: MonoType): PolyType => {
+export const generalise = (ctx: Context, type: TC.MonoType): TC.PolyType => {
   const quantifiers = diff(freeVars(type), freeVars(ctx));
-  let t: PolyType = type;
+  let t: TC.PolyType = type;
   quantifiers.forEach((q) => {
     t = { type: TC.Type.TyQuant, a: q, sigma: t };
   });
@@ -134,7 +98,7 @@ const diff = <T>(a: T[], b: T[]): T[] => {
   return a.filter((v) => !bset.has(v));
 };
 
-const freeVars = (value: PolyType | Context): string[] => {
+const freeVars = (value: TC.PolyType | Context): string[] => {
   if (isContext(value)) {
     return Object.values(value).flatMap(freeVars);
   }
@@ -162,8 +126,8 @@ const freeVars = (value: PolyType | Context): string[] => {
 
 export class UnificationError extends Error {
   constructor(
-    public type1: PolyType,
-    public type2: PolyType,
+    public type1: TC.PolyType,
+    public type2: TC.PolyType,
     message?: string
   ) {
     super();
@@ -183,7 +147,7 @@ export class UnificationError extends Error {
   }
 }
 
-export function unify(type1: MonoType, type2: MonoType): Substitution {
+export function unify(type1: TC.MonoType, type2: TC.MonoType): Substitution {
   if (
     type1.type === TC.Type.TyVar &&
     type2.type === TC.Type.TyVar &&
@@ -204,8 +168,8 @@ export function unify(type1: MonoType, type2: MonoType): Substitution {
     return unify(type2, type1);
   }
 
-  if (type1.type === TC.Type.FnType) {
-    if (type2.type !== TC.Type.FnType) {
+  if (type1.type === TC.Type.FnType || type2.type === TC.Type.FnType) {
+    if (type1.type !== TC.Type.FnType || type2.type !== TC.Type.FnType) {
       throw new Error("Type Error: Both types must be functions");
     }
 
@@ -213,10 +177,6 @@ export function unify(type1: MonoType, type2: MonoType): Substitution {
     let sOut = unify(sIn(type1.out), sIn(type1.out));
 
     return sOut(sIn);
-  }
-
-  if (type2.type === TC.Type.FnType) {
-    return unify(type2, type1);
   }
 
   if (type1.C !== type2.C) {
@@ -239,7 +199,10 @@ export function unify(type1: MonoType, type2: MonoType): Substitution {
   return s;
 }
 
-const contains = (value: MonoType, type2: TC.TypeVariable): boolean => {
+export const contains = (
+  value: TC.MonoType,
+  type2: TC.TypeVariable
+): boolean => {
   if (value.type === TC.Type.TyVar) {
     return value.a === type2.a;
   }
