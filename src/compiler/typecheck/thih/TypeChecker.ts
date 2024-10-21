@@ -401,3 +401,214 @@ function entail(ce: ClassEnv, ps: Predicate[], p: Predicate): boolean {
 }
 
 // 7.4 Context Reduction
+
+function inHnf({ type: t }: Predicate) {
+  return hnf(t);
+
+  function hnf(type: Type): boolean {
+    switch (type.type) {
+      case "tvar":
+        return true;
+      case "tyapp":
+        return hnf(type.args[0]);
+      default:
+        return false;
+    }
+  }
+}
+
+const toHnfs = (ce: ClassEnv, ps: Predicate[]) =>
+  ps.flatMap((p) => toHnf(ce, p));
+
+function toHnf(ce: ClassEnv, p: Predicate): Predicate[] {
+  if (inHnf(p)) {
+    return [p];
+  }
+
+  try {
+    return toHnfs(ce, byInst(ce, p));
+  } catch (e) {
+    throw new Error("context reduction");
+  }
+}
+
+function simplify(ce: ClassEnv, ps: Predicate[]) {
+  let rs = [];
+  let p: Predicate;
+
+  while (ps.length > 0) {
+    [p, ...ps] = ps;
+
+    // If p is entailed by the existing list of predicates then
+    // it can be eliminated. Otherwise, it's treated as necessary
+    // and moved to rs
+    if (!entail(ce, rs.concat(ps), p)) {
+      rs = [p, ...rs];
+    }
+  }
+
+  return rs;
+}
+
+const reduce = (ce: ClassEnv, ps: Predicate[]) => simplify(ce, toHnfs(ce, ps));
+
+// Skipping scEntail for now
+
+// 8 Type Schemes
+
+interface Scheme {
+  forAll: Kind[];
+  type: Qualified<Type>;
+}
+
+const TypesQualType = TypesQual<Type, typeof TypesType>(TypesType);
+
+const TypesScheme: Types<Scheme> = {
+  apply: (s, { forAll, type: qt }) => ({
+    forAll,
+    type: TypesQualType.apply(s, qt),
+  }),
+
+  tv: ({ type }) => TypesQualType.tv(type),
+};
+
+function quantify(vs: TVar[], qt: Qualified<Type>): Scheme {
+  let vs1 = TypesQualType.tv(qt).filter((v) => vs.some((v1) => eq(v, v1)));
+
+  let s: Subst = vs1.map((v, i): [TVar, TGen] => [v, { type: "tgen", num: i }]);
+
+  return { forAll: vs1.map((v) => v.kind), type: TypesQualType.apply(s, qt) };
+}
+
+const toScheme = (t: Type): Scheme => ({
+  forAll: [],
+  type: { preds: [], head: t },
+});
+
+// 9 Assumptions
+
+interface Assump {
+  id: Id;
+  scheme: Scheme;
+}
+
+const TypesAssump: Types<Assump> = {
+  apply: (s, { id, scheme }) => ({ id, scheme: TypesScheme.apply(s, scheme) }),
+
+  tv: ({ scheme }) => TypesScheme.tv(scheme),
+};
+
+function find(i: Id, as: Assump[]): Scheme {
+  if (as.length === 0) {
+    throw new Error(`unbound identifier: ${i}`);
+  }
+
+  let i1: Id, scheme: Scheme;
+  [{ id: i1, scheme }, ...as] = as;
+
+  return i === i1 ? scheme : find(i, as);
+}
+
+// 10 A Type Inference Monad
+
+type TI<A> = (s: Subst, n: number) => [Subst, number, A];
+
+const MonadTI = {
+  return:
+    <A>(x: A): TI<A> =>
+    (s, n) =>
+      [s, n, x],
+
+  bind:
+    <A, B>(f: TI<A>, g: (a: A) => TI<B>): TI<B> =>
+    (s, n) => {
+      let [s1, m, x] = f(s, n);
+      let gx = g(x);
+      return gx(s1, m);
+    },
+
+  mapM: <A, B>(f: (a: A) => TI<B>, as: A[]): TI<B[]> => {
+    if (as.length === 0) {
+      return MonadTI.return([]);
+    }
+
+    let [x, ...xs] = as;
+
+    return MonadTI.bind(f(x), (y) =>
+      MonadTI.bind(MonadTI.mapM(f, xs), (ys) => MonadTI.return([y, ...ys]))
+    );
+  },
+};
+
+const runTI = <A>(f: TI<A>) => f([], 0)[2];
+
+const getSubst: TI<Subst> = (s, n) => [s, n, s];
+
+const unify = (t1: Type, t2: Type) =>
+  MonadTI.bind(getSubst, (s) =>
+    extSubst(mgu(TypesType.apply(s, t1), TypesType.apply(s, t2)))
+  );
+
+const extSubst =
+  (s1: Subst): TI<null> =>
+  (s, n) =>
+    [Subst.compose(s1, s), n, null];
+
+const newTVar =
+  (kind: Kind): TI<Type> =>
+  (s, n) =>
+    [s, n + 1, { type: "tvar", id: enumId(n), kind }];
+
+const freshInst = ({ forAll, type }: Scheme): TI<Qualified<Type>> =>
+  MonadTI.bind(MonadTI.mapM(newTVar, forAll), (ts) =>
+    MonadTI.return(InstantiateQualType.inst(ts, type))
+  );
+
+interface Instantiate<T> {
+  inst: (ts: Type[], t: T) => T;
+}
+
+const InstantiateType: Instantiate<Type> = {
+  inst: (ts, t) => {
+    switch (t.type) {
+      case "tyapp":
+        let [l, r] = t.args;
+        return {
+          type: "tyapp",
+          args: [InstantiateType.inst(ts, l), InstantiateType.inst(ts, r)],
+        };
+      case "tgen":
+        return ts[t.num];
+      default:
+        return t;
+    }
+  },
+};
+
+function InstantiateQual<T, U extends Instantiate<T>>(
+  dict: U
+): Instantiate<Qualified<T>> {
+  return {
+    inst: (ts, { preds, head }) => ({
+      preds: preds.map((p) => InstantiatePred.inst(ts, p)),
+      head: dict.inst(ts, head),
+    }),
+  };
+}
+
+const InstantiateQualType = InstantiateQual<Type, typeof InstantiateType>(
+  InstantiateType
+);
+
+const InstantiatePred: Instantiate<Predicate> = {
+  inst: (ts, { isIn, type }) => ({
+    isIn,
+    type: InstantiateType.inst(ts, type),
+  }),
+};
+
+// 11 Type Inference
+
+type Infer = <E, T>(ce: ClassEnv, as: Assump[], e: E) => TI<[Predicate[], T]>;
+
+// 11.1 Literals
