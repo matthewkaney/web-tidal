@@ -4,6 +4,8 @@ import { Expr } from "./parse/Expr";
 import { Stmt } from "./parse/Stmt";
 import { Bindings } from "./parse/API";
 
+import { Pattern } from "../strudel";
+
 type Value = Primitive | Value[] | ((input: Value) => Value);
 
 export class Interpreter {
@@ -42,7 +44,15 @@ export class Interpreter {
   }
 
   private stringify(object: Primitive) {
-    if (object == null) return "nil";
+    // @ts-ignore
+    if (object instanceof Pattern) {
+      return (object as Pattern)
+        .firstCycle()
+        .map((hap) => hap.show(true))
+        .join(", ");
+    }
+
+    if (object == null) return "null";
 
     return object.toString();
   }

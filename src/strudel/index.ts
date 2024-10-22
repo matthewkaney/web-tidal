@@ -1,29 +1,20 @@
 import { Bindings, expandSynonyms } from "../compiler/parse/API";
 
-import { operators } from "./operators";
+export { Pattern } from "@strudel/core";
 
+import { operators } from "./operators";
 import { core } from "./core";
 import { controls } from "./controls";
+import { tonal } from "./tonal";
 import { boot } from "./boot";
 export { hush } from "./boot";
-
-import * as tonal from "@strudel/tonal";
-
-let tonalBindings: Bindings = {};
-
-for (let [name, func] of Object.entries(tonal)) {
-  tonalBindings[name] = {
-    type: "",
-    value: func,
-  };
-}
 
 export const bindings: Bindings = expandSynonyms({
   ...operators,
   ...core,
   ...controls,
   ...boot,
-  ...tonalBindings,
+  ...tonal,
 });
 
 export const typeBindings: { [name: string]: string } = Object.fromEntries(

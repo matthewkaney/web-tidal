@@ -41,7 +41,10 @@ export class TypeParser extends BaseParser<TC.PolyType> {
   private functionType(): TC.MonoType {
     let paramType = this.typeConstructor();
 
-    if (this.match(TokenType.Arrow)) {
+    if (this.match(TokenType.DoubleArrow)) {
+      // We found a type constraint! For now, let's just discard it
+      return this.functionType();
+    } else if (this.match(TokenType.Arrow)) {
       let returnType = this.functionType();
       return {
         type: TC.Type.FnType,
@@ -90,17 +93,23 @@ export class TypeParser extends BaseParser<TC.PolyType> {
       );
       return { type: TC.Type.TyCon, C: "List", mus: [listParam] };
     } else if (this.match(TokenType.LeftParen)) {
-      // TODO: Implement
-      // if (this.match(TokenType.RightParen)) {
-      //   return { type: "Unit" };
-      // }
+      let elements: MonoType[] = [];
 
-      let parenContents = this.functionType();
-      this.consume(
-        TokenType.RightParen,
-        "Expected right paren at end of parenthesized expression."
-      );
-      return parenContents;
+      while (!this.match(TokenType.RightParen)) {
+        if (this.isAtEnd()) {
+          throw new Error("Unterminated tuple type");
+        }
+
+        if (elements.length > 0) {
+          this.consume(TokenType.Comma, "Expect ',' after tuple item");
+        }
+
+        elements.push(this.functionType());
+      }
+
+      return elements.length === 1
+        ? elements[0]
+        : { type: "ty-app", C: "()", mus: elements };
     } else {
       return this.typeIdentifier();
     }

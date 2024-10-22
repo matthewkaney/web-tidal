@@ -1,0 +1,41 @@
+html,
+body,
+.main {
+  height: 100%;
+}
+
+body {
+  background: #20232b;
+  margin: 0;
+}
+
+:root {
+  color: #f8f8f2;
+  font-size: 18px;
+  font-family: monospace;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+}
+
+#editor {
+  flex: 1;
+  overflow: hidden;
+}
+
+#url {
+  border: 0;
+  background: #2d2f3f;
+  margin: 5px;
+  padding: 5px;
+  color: inherit;
+  font-family: inherit;
+}
+
+#url:focus-visible {
+  border: none;
+  outline: none;
+  box-shadow: inset 0 0 0 2px #f8f8f2;
+}

@@ -1,0 +1,1296 @@
+accelerate::Pattern Double -> Pattern Controls
+accelerateCount::String -> Pattern Controls
+accelerateCountTo::String -> Pattern Double -> Pattern Controls
+accelerateTake::String -> [Double] -> Pattern Controls
+acceleratebus::Pattern Int -> Pattern Double -> Pattern Controls
+amp::Pattern Double -> Pattern Controls
+ampCount::String -> Pattern Controls
+ampCountTo::String -> Pattern Double -> Pattern Controls
+ampTake::String -> [Double] -> Pattern Controls
+ampbus::Pattern Int -> Pattern Double -> Pattern Controls
+amprecv::Pattern Int -> Pattern Controls
+array::Pattern [Number] -> Pattern Controls
+arrayTake::String -> [Double] -> Pattern Controls
+arraybus::Pattern Int -> Pattern [Number] -> Pattern Controls
+att::Pattern Double -> Pattern Controls
+attack::Pattern Double -> Pattern Controls
+attackCount::String -> Pattern Controls
+attackCountTo::String -> Pattern Double -> Pattern Controls
+attackTake::String -> [Double] -> Pattern Controls
+attackbus::Pattern Int -> Pattern Double -> Pattern Controls
+attackrecv::Pattern Int -> Pattern Controls
+attbus::Pattern Int -> Pattern Double -> Pattern Controls
+attrecv::Pattern Int -> Pattern Controls
+bandf::Pattern Double -> Pattern Controls
+bandfCount::String -> Pattern Controls
+bandfCountTo::String -> Pattern Double -> Pattern Controls
+bandfTake::String -> [Double] -> Pattern Controls
+bandfbus::Pattern Int -> Pattern Double -> Pattern Controls
+bandfrecv::Pattern Int -> Pattern Controls
+bandq::Pattern Double -> Pattern Controls
+bandqCount::String -> Pattern Controls
+bandqCountTo::String -> Pattern Double -> Pattern Controls
+bandqTake::String -> [Double] -> Pattern Controls
+bandqbus::Pattern Int -> Pattern Double -> Pattern Controls
+bandqrecv::Pattern Int -> Pattern Controls
+begin::Pattern Double -> Pattern Controls
+beginCount::String -> Pattern Controls
+beginCountTo::String -> Pattern Double -> Pattern Controls
+beginTake::String -> [Double] -> Pattern Controls
+beginbus::Pattern Int -> Pattern Double -> Pattern Controls
+binshift::Pattern Double -> Pattern Controls
+binshiftCount::String -> Pattern Controls
+binshiftCountTo::String -> Pattern Double -> Pattern Controls
+binshiftTake::String -> [Double] -> Pattern Controls
+binshiftbus::Pattern Int -> Pattern Double -> Pattern Controls
+binshiftrecv::Pattern Int -> Pattern Controls
+bpf::Pattern Double -> Pattern Controls
+bpfbus::Pattern Int -> Pattern Double -> Pattern Controls
+bpfrecv::Pattern Int -> Pattern Controls
+bpq::Pattern Double -> Pattern Controls
+bpqbus::Pattern Int -> Pattern Double -> Pattern Controls
+bpqrecv::Pattern Int -> Pattern Controls
+button0::Pattern Double -> Pattern Controls
+button0Count::String -> Pattern Controls
+button0CountTo::String -> Pattern Double -> Pattern Controls
+button0Take::String -> [Double] -> Pattern Controls
+button0bus::Pattern Int -> Pattern Double -> Pattern Controls
+button0recv::Pattern Int -> Pattern Controls
+button1::Pattern Double -> Pattern Controls
+button10::Pattern Double -> Pattern Controls
+button10Count::String -> Pattern Controls
+button10CountTo::String -> Pattern Double -> Pattern Controls
+button10Take::String -> [Double] -> Pattern Controls
+button10bus::Pattern Int -> Pattern Double -> Pattern Controls
+button10recv::Pattern Int -> Pattern Controls
+button11::Pattern Double -> Pattern Controls
+button11Count::String -> Pattern Controls
+button11CountTo::String -> Pattern Double -> Pattern Controls
+button11Take::String -> [Double] -> Pattern Controls
+button11bus::Pattern Int -> Pattern Double -> Pattern Controls
+button11recv::Pattern Int -> Pattern Controls
+button12::Pattern Double -> Pattern Controls
+button12Count::String -> Pattern Controls
+button12CountTo::String -> Pattern Double -> Pattern Controls
+button12Take::String -> [Double] -> Pattern Controls
+button12bus::Pattern Int -> Pattern Double -> Pattern Controls
+button12recv::Pattern Int -> Pattern Controls
+button13::Pattern Double -> Pattern Controls
+button13Count::String -> Pattern Controls
+button13CountTo::String -> Pattern Double -> Pattern Controls
+button13Take::String -> [Double] -> Pattern Controls
+button13bus::Pattern Int -> Pattern Double -> Pattern Controls
+button13recv::Pattern Int -> Pattern Controls
+button14::Pattern Double -> Pattern Controls
+button14Count::String -> Pattern Controls
+button14CountTo::String -> Pattern Double -> Pattern Controls
+button14Take::String -> [Double] -> Pattern Controls
+button14bus::Pattern Int -> Pattern Double -> Pattern Controls
+button14recv::Pattern Int -> Pattern Controls
+button15::Pattern Double -> Pattern Controls
+button15Count::String -> Pattern Controls
+button15CountTo::String -> Pattern Double -> Pattern Controls
+button15Take::String -> [Double] -> Pattern Controls
+button15bus::Pattern Int -> Pattern Double -> Pattern Controls
+button15recv::Pattern Int -> Pattern Controls
+button1Count::String -> Pattern Controls
+button1CountTo::String -> Pattern Double -> Pattern Controls
+button1Take::String -> [Double] -> Pattern Controls
+button1bus::Pattern Int -> Pattern Double -> Pattern Controls
+button1recv::Pattern Int -> Pattern Controls
+button2::Pattern Double -> Pattern Controls
+button2Count::String -> Pattern Controls
+button2CountTo::String -> Pattern Double -> Pattern Controls
+button2Take::String -> [Double] -> Pattern Controls
+button2bus::Pattern Int -> Pattern Double -> Pattern Controls
+button2recv::Pattern Int -> Pattern Controls
+button3::Pattern Double -> Pattern Controls
+button3Count::String -> Pattern Controls
+button3CountTo::String -> Pattern Double -> Pattern Controls
+button3Take::String -> [Double] -> Pattern Controls
+button3bus::Pattern Int -> Pattern Double -> Pattern Controls
+button3recv::Pattern Int -> Pattern Controls
+button4::Pattern Double -> Pattern Controls
+button4Count::String -> Pattern Controls
+button4CountTo::String -> Pattern Double -> Pattern Controls
+button4Take::String -> [Double] -> Pattern Controls
+button4bus::Pattern Int -> Pattern Double -> Pattern Controls
+button4recv::Pattern Int -> Pattern Controls
+button5::Pattern Double -> Pattern Controls
+button5Count::String -> Pattern Controls
+button5CountTo::String -> Pattern Double -> Pattern Controls
+button5Take::String -> [Double] -> Pattern Controls
+button5bus::Pattern Int -> Pattern Double -> Pattern Controls
+button5recv::Pattern Int -> Pattern Controls
+button6::Pattern Double -> Pattern Controls
+button6Count::String -> Pattern Controls
+button6CountTo::String -> Pattern Double -> Pattern Controls
+button6Take::String -> [Double] -> Pattern Controls
+button6bus::Pattern Int -> Pattern Double -> Pattern Controls
+button6recv::Pattern Int -> Pattern Controls
+button7::Pattern Double -> Pattern Controls
+button7Count::String -> Pattern Controls
+button7CountTo::String -> Pattern Double -> Pattern Controls
+button7Take::String -> [Double] -> Pattern Controls
+button7bus::Pattern Int -> Pattern Double -> Pattern Controls
+button7recv::Pattern Int -> Pattern Controls
+button8::Pattern Double -> Pattern Controls
+button8Count::String -> Pattern Controls
+button8CountTo::String -> Pattern Double -> Pattern Controls
+button8Take::String -> [Double] -> Pattern Controls
+button8bus::Pattern Int -> Pattern Double -> Pattern Controls
+button8recv::Pattern Int -> Pattern Controls
+button9::Pattern Double -> Pattern Controls
+button9Count::String -> Pattern Controls
+button9CountTo::String -> Pattern Double -> Pattern Controls
+button9Take::String -> [Double] -> Pattern Controls
+button9bus::Pattern Int -> Pattern Double -> Pattern Controls
+button9recv::Pattern Int -> Pattern Controls
+cc::Pattern String -> Pattern Controls
+ccn::Pattern Double -> Pattern Controls
+ccnCount::String -> Pattern Controls
+ccnCountTo::String -> Pattern Double -> Pattern Controls
+ccnTake::String -> [Double] -> Pattern Controls
+ccnbus::Pattern Int -> Pattern Double -> Pattern Controls
+ccv::Pattern Double -> Pattern Controls
+ccvCount::String -> Pattern Controls
+ccvCountTo::String -> Pattern Double -> Pattern Controls
+ccvTake::String -> [Double] -> Pattern Controls
+ccvbus::Pattern Int -> Pattern Double -> Pattern Controls
+channel::Pattern Int -> Pattern Controls
+channelCount::String -> Pattern Controls
+channelCountTo::String -> Pattern Double -> Pattern Controls
+channelTake::String -> [Double] -> Pattern Controls
+channelbus::Pattern Int -> Pattern Int -> Pattern Controls
+chdecay::Pattern Double -> Pattern Controls
+chdecaybus::Pattern Int -> Pattern Double -> Pattern Controls
+chdecayrecv::Pattern Int -> Pattern Controls
+clhatdecay::Pattern Double -> Pattern Controls
+clhatdecayCount::String -> Pattern Controls
+clhatdecayCountTo::String -> Pattern Double -> Pattern Controls
+clhatdecayTake::String -> [Double] -> Pattern Controls
+clhatdecaybus::Pattern Int -> Pattern Double -> Pattern Controls
+clhatdecayrecv::Pattern Int -> Pattern Controls
+coarse::Pattern Double -> Pattern Controls
+coarseCount::String -> Pattern Controls
+coarseCountTo::String -> Pattern Double -> Pattern Controls
+coarseTake::String -> [Double] -> Pattern Controls
+coarsebus::Pattern Int -> Pattern Double -> Pattern Controls
+coarserecv::Pattern Int -> Pattern Controls
+comb::Pattern Double -> Pattern Controls
+combCount::String -> Pattern Controls
+combCountTo::String -> Pattern Double -> Pattern Controls
+combTake::String -> [Double] -> Pattern Controls
+combbus::Pattern Int -> Pattern Double -> Pattern Controls
+combrecv::Pattern Int -> Pattern Controls
+control::Pattern Double -> Pattern Controls
+controlCount::String -> Pattern Controls
+controlCountTo::String -> Pattern Double -> Pattern Controls
+controlTake::String -> [Double] -> Pattern Controls
+controlbus::Pattern Int -> Pattern Double -> Pattern Controls
+cps::Pattern Double -> Pattern Controls
+cpsCount::String -> Pattern Controls
+cpsCountTo::String -> Pattern Double -> Pattern Controls
+cpsTake::String -> [Double] -> Pattern Controls
+cpsbus::Pattern Int -> Pattern Double -> Pattern Controls
+cpsrecv::Pattern Int -> Pattern Controls
+crush::Pattern Double -> Pattern Controls
+crushCount::String -> Pattern Controls
+crushCountTo::String -> Pattern Double -> Pattern Controls
+crushTake::String -> [Double] -> Pattern Controls
+crushbus::Pattern Int -> Pattern Double -> Pattern Controls
+crushrecv::Pattern Int -> Pattern Controls
+ctf::Pattern Double -> Pattern Controls
+ctfbus::Pattern Int -> Pattern Double -> Pattern Controls
+ctfg::Pattern Double -> Pattern Controls
+ctfgbus::Pattern Int -> Pattern Double -> Pattern Controls
+ctfgrecv::Pattern Int -> Pattern Controls
+ctfrecv::Pattern Int -> Pattern Controls
+ctlNum::Pattern Double -> Pattern Controls
+ctlNumCount::String -> Pattern Controls
+ctlNumCountTo::String -> Pattern Double -> Pattern Controls
+ctlNumTake::String -> [Double] -> Pattern Controls
+ctlNumbus::Pattern Int -> Pattern Double -> Pattern Controls
+ctranspose::Pattern Double -> Pattern Controls
+ctransposeCount::String -> Pattern Controls
+ctransposeCountTo::String -> Pattern Double -> Pattern Controls
+ctransposeTake::String -> [Double] -> Pattern Controls
+ctransposebus::Pattern Int -> Pattern Double -> Pattern Controls
+ctransposerecv::Pattern Int -> Pattern Controls
+cut::Pattern Int -> Pattern Controls
+cutCount::String -> Pattern Controls
+cutCountTo::String -> Pattern Double -> Pattern Controls
+cutTake::String -> [Double] -> Pattern Controls
+cutbus::Pattern Int -> Pattern Int -> Pattern Controls
+cutoff::Pattern Double -> Pattern Controls
+cutoffCount::String -> Pattern Controls
+cutoffCountTo::String -> Pattern Double -> Pattern Controls
+cutoffTake::String -> [Double] -> Pattern Controls
+cutoffbus::Pattern Int -> Pattern Double -> Pattern Controls
+cutoffegint::Pattern Double -> Pattern Controls
+cutoffegintCount::String -> Pattern Controls
+cutoffegintCountTo::String -> Pattern Double -> Pattern Controls
+cutoffegintTake::String -> [Double] -> Pattern Controls
+cutoffegintbus::Pattern Int -> Pattern Double -> Pattern Controls
+cutoffegintrecv::Pattern Int -> Pattern Controls
+cutoffrecv::Pattern Int -> Pattern Controls
+cutrecv::Pattern Int -> Pattern Controls
+decay::Pattern Double -> Pattern Controls
+decayCount::String -> Pattern Controls
+decayCountTo::String -> Pattern Double -> Pattern Controls
+decayTake::String -> [Double] -> Pattern Controls
+decaybus::Pattern Int -> Pattern Double -> Pattern Controls
+decayrecv::Pattern Int -> Pattern Controls
+degree::Pattern Double -> Pattern Controls
+degreeCount::String -> Pattern Controls
+degreeCountTo::String -> Pattern Double -> Pattern Controls
+degreeTake::String -> [Double] -> Pattern Controls
+degreebus::Pattern Int -> Pattern Double -> Pattern Controls
+degreerecv::Pattern Int -> Pattern Controls
+delay::Pattern Double -> Pattern Controls
+delayCount::String -> Pattern Controls
+delayCountTo::String -> Pattern Double -> Pattern Controls
+delayTake::String -> [Double] -> Pattern Controls
+delaybus::Pattern Int -> Pattern Double -> Pattern Controls
+delayfb::Pattern Double -> Pattern Controls
+delayfbbus::Pattern Int -> Pattern Double -> Pattern Controls
+delayfbrecv::Pattern Int -> Pattern Controls
+delayfeedback::Pattern Double -> Pattern Controls
+delayfeedbackCount::String -> Pattern Controls
+delayfeedbackCountTo::String -> Pattern Double -> Pattern Controls
+delayfeedbackTake::String -> [Double] -> Pattern Controls
+delayfeedbackbus::Pattern Int -> Pattern Double -> Pattern Controls
+delayfeedbackrecv::Pattern Int -> Pattern Controls
+delayrecv::Pattern Int -> Pattern Controls
+delayt::Pattern Double -> Pattern Controls
+delaytbus::Pattern Int -> Pattern Double -> Pattern Controls
+delaytime::Pattern Double -> Pattern Controls
+delaytimeCount::String -> Pattern Controls
+delaytimeCountTo::String -> Pattern Double -> Pattern Controls
+delaytimeTake::String -> [Double] -> Pattern Controls
+delaytimebus::Pattern Int -> Pattern Double -> Pattern Controls
+delaytimerecv::Pattern Int -> Pattern Controls
+delaytrecv::Pattern Int -> Pattern Controls
+det::Pattern Double -> Pattern Controls
+detbus::Pattern Int -> Pattern Double -> Pattern Controls
+detrecv::Pattern Int -> Pattern Controls
+detune::Pattern Double -> Pattern Controls
+detuneCount::String -> Pattern Controls
+detuneCountTo::String -> Pattern Double -> Pattern Controls
+detuneTake::String -> [Double] -> Pattern Controls
+detunebus::Pattern Int -> Pattern Double -> Pattern Controls
+detunerecv::Pattern Int -> Pattern Controls
+dfb::Pattern Double -> Pattern Controls
+dfbbus::Pattern Int -> Pattern Double -> Pattern Controls
+dfbrecv::Pattern Int -> Pattern Controls
+distort::Pattern Double -> Pattern Controls
+distortCount::String -> Pattern Controls
+distortCountTo::String -> Pattern Double -> Pattern Controls
+distortTake::String -> [Double] -> Pattern Controls
+distortbus::Pattern Int -> Pattern Double -> Pattern Controls
+distortrecv::Pattern Int -> Pattern Controls
+djf::Pattern Double -> Pattern Controls
+djfCount::String -> Pattern Controls
+djfCountTo::String -> Pattern Double -> Pattern Controls
+djfTake::String -> [Double] -> Pattern Controls
+djfbus::Pattern Int -> Pattern Double -> Pattern Controls
+djfrecv::Pattern Int -> Pattern Controls
+drum::Pattern String -> Pattern Controls
+drumN::Num a => String -> a
+dry::Pattern Double -> Pattern Controls
+dryCount::String -> Pattern Controls
+dryCountTo::String -> Pattern Double -> Pattern Controls
+dryTake::String -> [Double] -> Pattern Controls
+drybus::Pattern Int -> Pattern Double -> Pattern Controls
+dryrecv::Pattern Int -> Pattern Controls
+dt::Pattern Double -> Pattern Controls
+dtbus::Pattern Int -> Pattern Double -> Pattern Controls
+dtrecv::Pattern Int -> Pattern Controls
+dur::Pattern Double -> Pattern Controls
+durCount::String -> Pattern Controls
+durCountTo::String -> Pattern Double -> Pattern Controls
+durTake::String -> [Double] -> Pattern Controls
+durbus::Pattern Int -> Pattern Double -> Pattern Controls
+durrecv::Pattern Int -> Pattern Controls
+end::Pattern Double -> Pattern Controls
+endCount::String -> Pattern Controls
+endCountTo::String -> Pattern Double -> Pattern Controls
+endTake::String -> [Double] -> Pattern Controls
+endbus::Pattern Int -> Pattern Double -> Pattern Controls
+enhance::Pattern Double -> Pattern Controls
+enhanceCount::String -> Pattern Controls
+enhanceCountTo::String -> Pattern Double -> Pattern Controls
+enhanceTake::String -> [Double] -> Pattern Controls
+enhancebus::Pattern Int -> Pattern Double -> Pattern Controls
+enhancerecv::Pattern Int -> Pattern Controls
+expression::Pattern Double -> Pattern Controls
+expressionCount::String -> Pattern Controls
+expressionCountTo::String -> Pattern Double -> Pattern Controls
+expressionTake::String -> [Double] -> Pattern Controls
+expressionbus::Pattern Int -> Pattern Double -> Pattern Controls
+expressionrecv::Pattern Int -> Pattern Controls
+fadeInTime::Pattern Double -> Pattern Controls
+fadeInTimeCount::String -> Pattern Controls
+fadeInTimeCountTo::String -> Pattern Double -> Pattern Controls
+fadeInTimeTake::String -> [Double] -> Pattern Controls
+fadeInTimebus::Pattern Int -> Pattern Double -> Pattern Controls
+fadeOutTime::Pattern Double -> Pattern Controls
+fadeTime::Pattern Double -> Pattern Controls
+fadeTimeCount::String -> Pattern Controls
+fadeTimeCountTo::String -> Pattern Double -> Pattern Controls
+fadeTimeTake::String -> [Double] -> Pattern Controls
+fadeTimebus::Pattern Int -> Pattern Double -> Pattern Controls
+frameRate::Pattern Double -> Pattern Controls
+frameRateCount::String -> Pattern Controls
+frameRateCountTo::String -> Pattern Double -> Pattern Controls
+frameRateTake::String -> [Double] -> Pattern Controls
+frameRatebus::Pattern Int -> Pattern Double -> Pattern Controls
+frames::Pattern Double -> Pattern Controls
+framesCount::String -> Pattern Controls
+framesCountTo::String -> Pattern Double -> Pattern Controls
+framesTake::String -> [Double] -> Pattern Controls
+framesbus::Pattern Int -> Pattern Double -> Pattern Controls
+freeze::Pattern Double -> Pattern Controls
+freezeCount::String -> Pattern Controls
+freezeCountTo::String -> Pattern Double -> Pattern Controls
+freezeTake::String -> [Double] -> Pattern Controls
+freezebus::Pattern Int -> Pattern Double -> Pattern Controls
+freezerecv::Pattern Int -> Pattern Controls
+freq::Pattern Double -> Pattern Controls
+freqCount::String -> Pattern Controls
+freqCountTo::String -> Pattern Double -> Pattern Controls
+freqTake::String -> [Double] -> Pattern Controls
+freqbus::Pattern Int -> Pattern Double -> Pattern Controls
+freqrecv::Pattern Int -> Pattern Controls
+from::Pattern Double -> Pattern Controls
+fromCount::String -> Pattern Controls
+fromCountTo::String -> Pattern Double -> Pattern Controls
+fromTake::String -> [Double] -> Pattern Controls
+frombus::Pattern Int -> Pattern Double -> Pattern Controls
+fromrecv::Pattern Int -> Pattern Controls
+fshift::Pattern Double -> Pattern Controls
+fshiftCount::String -> Pattern Controls
+fshiftCountTo::String -> Pattern Double -> Pattern Controls
+fshiftTake::String -> [Double] -> Pattern Controls
+fshiftbus::Pattern Int -> Pattern Double -> Pattern Controls
+fshiftnote::Pattern Double -> Pattern Controls
+fshiftnoteCount::String -> Pattern Controls
+fshiftnoteCountTo::String -> Pattern Double -> Pattern Controls
+fshiftnoteTake::String -> [Double] -> Pattern Controls
+fshiftnotebus::Pattern Int -> Pattern Double -> Pattern Controls
+fshiftnoterecv::Pattern Int -> Pattern Controls
+fshiftphase::Pattern Double -> Pattern Controls
+fshiftphaseCount::String -> Pattern Controls
+fshiftphaseCountTo::String -> Pattern Double -> Pattern Controls
+fshiftphaseTake::String -> [Double] -> Pattern Controls
+fshiftphasebus::Pattern Int -> Pattern Double -> Pattern Controls
+fshiftphaserecv::Pattern Int -> Pattern Controls
+fshiftrecv::Pattern Int -> Pattern Controls
+gain::Pattern Double -> Pattern Controls
+gainCount::String -> Pattern Controls
+gainCountTo::String -> Pattern Double -> Pattern Controls
+gainTake::String -> [Double] -> Pattern Controls
+gainbus::Pattern Int -> Pattern Double -> Pattern Controls
+gat::Pattern Double -> Pattern Controls
+gatbus::Pattern Int -> Pattern Double -> Pattern Controls
+gate::Pattern Double -> Pattern Controls
+gateCount::String -> Pattern Controls
+gateCountTo::String -> Pattern Double -> Pattern Controls
+gateTake::String -> [Double] -> Pattern Controls
+gatebus::Pattern Int -> Pattern Double -> Pattern Controls
+gaterecv::Pattern Int -> Pattern Controls
+gatrecv::Pattern Int -> Pattern Controls
+grain'::Pattern String -> Pattern Controls
+grp::[String -> Controls] -> Pattern String -> Pattern Controls
+harmonic::Pattern Double -> Pattern Controls
+harmonicCount::String -> Pattern Controls
+harmonicCountTo::String -> Pattern Double -> Pattern Controls
+harmonicTake::String -> [Double] -> Pattern Controls
+harmonicbus::Pattern Int -> Pattern Double -> Pattern Controls
+harmonicrecv::Pattern Int -> Pattern Controls
+hatgrain::Pattern Double -> Pattern Controls
+hatgrainCount::String -> Pattern Controls
+hatgrainCountTo::String -> Pattern Double -> Pattern Controls
+hatgrainTake::String -> [Double] -> Pattern Controls
+hatgrainbus::Pattern Int -> Pattern Double -> Pattern Controls
+hatgrainrecv::Pattern Int -> Pattern Controls
+hbrick::Pattern Double -> Pattern Controls
+hbrickCount::String -> Pattern Controls
+hbrickCountTo::String -> Pattern Double -> Pattern Controls
+hbrickTake::String -> [Double] -> Pattern Controls
+hbrickbus::Pattern Int -> Pattern Double -> Pattern Controls
+hbrickrecv::Pattern Int -> Pattern Controls
+hcutoff::Pattern Double -> Pattern Controls
+hcutoffCount::String -> Pattern Controls
+hcutoffCountTo::String -> Pattern Double -> Pattern Controls
+hcutoffTake::String -> [Double] -> Pattern Controls
+hcutoffbus::Pattern Int -> Pattern Double -> Pattern Controls
+hcutoffrecv::Pattern Int -> Pattern Controls
+hg::Pattern Double -> Pattern Controls
+hgbus::Pattern Int -> Pattern Double -> Pattern Controls
+hgrecv::Pattern Int -> Pattern Controls
+hold::Pattern Double -> Pattern Controls
+holdCount::String -> Pattern Controls
+holdCountTo::String -> Pattern Double -> Pattern Controls
+holdTake::String -> [Double] -> Pattern Controls
+holdbus::Pattern Int -> Pattern Double -> Pattern Controls
+holdrecv::Pattern Int -> Pattern Controls
+hours::Pattern Double -> Pattern Controls
+hoursCount::String -> Pattern Controls
+hoursCountTo::String -> Pattern Double -> Pattern Controls
+hoursTake::String -> [Double] -> Pattern Controls
+hoursbus::Pattern Int -> Pattern Double -> Pattern Controls
+hpf::Pattern Double -> Pattern Controls
+hpfbus::Pattern Int -> Pattern Double -> Pattern Controls
+hpfrecv::Pattern Int -> Pattern Controls
+hpq::Pattern Double -> Pattern Controls
+hpqbus::Pattern Int -> Pattern Double -> Pattern Controls
+hpqrecv::Pattern Int -> Pattern Controls
+hresonance::Pattern Double -> Pattern Controls
+hresonanceCount::String -> Pattern Controls
+hresonanceCountTo::String -> Pattern Double -> Pattern Controls
+hresonanceTake::String -> [Double] -> Pattern Controls
+hresonancebus::Pattern Int -> Pattern Double -> Pattern Controls
+hresonancerecv::Pattern Int -> Pattern Controls
+imag::Pattern Double -> Pattern Controls
+imagCount::String -> Pattern Controls
+imagCountTo::String -> Pattern Double -> Pattern Controls
+imagTake::String -> [Double] -> Pattern Controls
+imagbus::Pattern Int -> Pattern Double -> Pattern Controls
+imagrecv::Pattern Int -> Pattern Controls
+kcutoff::Pattern Double -> Pattern Controls
+kcutoffCount::String -> Pattern Controls
+kcutoffCountTo::String -> Pattern Double -> Pattern Controls
+kcutoffTake::String -> [Double] -> Pattern Controls
+kcutoffbus::Pattern Int -> Pattern Double -> Pattern Controls
+kcutoffrecv::Pattern Int -> Pattern Controls
+krush::Pattern Double -> Pattern Controls
+krushCount::String -> Pattern Controls
+krushCountTo::String -> Pattern Double -> Pattern Controls
+krushTake::String -> [Double] -> Pattern Controls
+krushbus::Pattern Int -> Pattern Double -> Pattern Controls
+krushrecv::Pattern Int -> Pattern Controls
+lag::Pattern Double -> Pattern Controls
+lagbus::Pattern Int -> Pattern Double -> Pattern Controls
+lagogo::Pattern Double -> Pattern Controls
+lagogoCount::String -> Pattern Controls
+lagogoCountTo::String -> Pattern Double -> Pattern Controls
+lagogoTake::String -> [Double] -> Pattern Controls
+lagogobus::Pattern Int -> Pattern Double -> Pattern Controls
+lagogorecv::Pattern Int -> Pattern Controls
+lagrecv::Pattern Int -> Pattern Controls
+lbd::Pattern Double -> Pattern Controls
+lbdbus::Pattern Int -> Pattern Double -> Pattern Controls
+lbdrecv::Pattern Int -> Pattern Controls
+lbrick::Pattern Double -> Pattern Controls
+lbrickCount::String -> Pattern Controls
+lbrickCountTo::String -> Pattern Double -> Pattern Controls
+lbrickTake::String -> [Double] -> Pattern Controls
+lbrickbus::Pattern Int -> Pattern Double -> Pattern Controls
+lbrickrecv::Pattern Int -> Pattern Controls
+lch::Pattern Double -> Pattern Controls
+lchbus::Pattern Int -> Pattern Double -> Pattern Controls
+lchrecv::Pattern Int -> Pattern Controls
+lcl::Pattern Double -> Pattern Controls
+lclap::Pattern Double -> Pattern Controls
+lclapCount::String -> Pattern Controls
+lclapCountTo::String -> Pattern Double -> Pattern Controls
+lclapTake::String -> [Double] -> Pattern Controls
+lclapbus::Pattern Int -> Pattern Double -> Pattern Controls
+lclaprecv::Pattern Int -> Pattern Controls
+lclaves::Pattern Double -> Pattern Controls
+lclavesCount::String -> Pattern Controls
+lclavesCountTo::String -> Pattern Double -> Pattern Controls
+lclavesTake::String -> [Double] -> Pattern Controls
+lclavesbus::Pattern Int -> Pattern Double -> Pattern Controls
+lclavesrecv::Pattern Int -> Pattern Controls
+lclbus::Pattern Int -> Pattern Double -> Pattern Controls
+lclhat::Pattern Double -> Pattern Controls
+lclhatCount::String -> Pattern Controls
+lclhatCountTo::String -> Pattern Double -> Pattern Controls
+lclhatTake::String -> [Double] -> Pattern Controls
+lclhatbus::Pattern Int -> Pattern Double -> Pattern Controls
+lclhatrecv::Pattern Int -> Pattern Controls
+lclrecv::Pattern Int -> Pattern Controls
+lcp::Pattern Double -> Pattern Controls
+lcpbus::Pattern Int -> Pattern Double -> Pattern Controls
+lcprecv::Pattern Int -> Pattern Controls
+lcr::Pattern Double -> Pattern Controls
+lcrash::Pattern Double -> Pattern Controls
+lcrashCount::String -> Pattern Controls
+lcrashCountTo::String -> Pattern Double -> Pattern Controls
+lcrashTake::String -> [Double] -> Pattern Controls
+lcrashbus::Pattern Int -> Pattern Double -> Pattern Controls
+lcrashrecv::Pattern Int -> Pattern Controls
+lcrbus::Pattern Int -> Pattern Double -> Pattern Controls
+lcrrecv::Pattern Int -> Pattern Controls
+legato::Pattern Double -> Pattern Controls
+legatoCount::String -> Pattern Controls
+legatoCountTo::String -> Pattern Double -> Pattern Controls
+legatoTake::String -> [Double] -> Pattern Controls
+legatobus::Pattern Int -> Pattern Double -> Pattern Controls
+leslie::Pattern Double -> Pattern Controls
+leslieCount::String -> Pattern Controls
+leslieCountTo::String -> Pattern Double -> Pattern Controls
+leslieTake::String -> [Double] -> Pattern Controls
+lesliebus::Pattern Int -> Pattern Double -> Pattern Controls
+leslierecv::Pattern Int -> Pattern Controls
+lfo::Pattern Double -> Pattern Controls
+lfoCount::String -> Pattern Controls
+lfoCountTo::String -> Pattern Double -> Pattern Controls
+lfoTake::String -> [Double] -> Pattern Controls
+lfobus::Pattern Int -> Pattern Double -> Pattern Controls
+lfoc::Pattern Double -> Pattern Controls
+lfocbus::Pattern Int -> Pattern Double -> Pattern Controls
+lfocrecv::Pattern Int -> Pattern Controls
+lfocutoffint::Pattern Double -> Pattern Controls
+lfocutoffintCount::String -> Pattern Controls
+lfocutoffintCountTo::String -> Pattern Double -> Pattern Controls
+lfocutoffintTake::String -> [Double] -> Pattern Controls
+lfocutoffintbus::Pattern Int -> Pattern Double -> Pattern Controls
+lfocutoffintrecv::Pattern Int -> Pattern Controls
+lfodelay::Pattern Double -> Pattern Controls
+lfodelayCount::String -> Pattern Controls
+lfodelayCountTo::String -> Pattern Double -> Pattern Controls
+lfodelayTake::String -> [Double] -> Pattern Controls
+lfodelaybus::Pattern Int -> Pattern Double -> Pattern Controls
+lfodelayrecv::Pattern Int -> Pattern Controls
+lfoi::Pattern Double -> Pattern Controls
+lfoibus::Pattern Int -> Pattern Double -> Pattern Controls
+lfoint::Pattern Double -> Pattern Controls
+lfointCount::String -> Pattern Controls
+lfointCountTo::String -> Pattern Double -> Pattern Controls
+lfointTake::String -> [Double] -> Pattern Controls
+lfointbus::Pattern Int -> Pattern Double -> Pattern Controls
+lfointrecv::Pattern Int -> Pattern Controls
+lfoirecv::Pattern Int -> Pattern Controls
+lfop::Pattern Double -> Pattern Controls
+lfopbus::Pattern Int -> Pattern Double -> Pattern Controls
+lfopitchint::Pattern Double -> Pattern Controls
+lfopitchintCount::String -> Pattern Controls
+lfopitchintCountTo::String -> Pattern Double -> Pattern Controls
+lfopitchintTake::String -> [Double] -> Pattern Controls
+lfopitchintbus::Pattern Int -> Pattern Double -> Pattern Controls
+lfopitchintrecv::Pattern Int -> Pattern Controls
+lfoprecv::Pattern Int -> Pattern Controls
+lforecv::Pattern Int -> Pattern Controls
+lfoshape::Pattern Double -> Pattern Controls
+lfoshapeCount::String -> Pattern Controls
+lfoshapeCountTo::String -> Pattern Double -> Pattern Controls
+lfoshapeTake::String -> [Double] -> Pattern Controls
+lfoshapebus::Pattern Int -> Pattern Double -> Pattern Controls
+lfoshaperecv::Pattern Int -> Pattern Controls
+lfosync::Pattern Double -> Pattern Controls
+lfosyncCount::String -> Pattern Controls
+lfosyncCountTo::String -> Pattern Double -> Pattern Controls
+lfosyncTake::String -> [Double] -> Pattern Controls
+lfosyncbus::Pattern Int -> Pattern Double -> Pattern Controls
+lfosyncrecv::Pattern Int -> Pattern Controls
+lhitom::Pattern Double -> Pattern Controls
+lhitomCount::String -> Pattern Controls
+lhitomCountTo::String -> Pattern Double -> Pattern Controls
+lhitomTake::String -> [Double] -> Pattern Controls
+lhitombus::Pattern Int -> Pattern Double -> Pattern Controls
+lhitomrecv::Pattern Int -> Pattern Controls
+lht::Pattern Double -> Pattern Controls
+lhtbus::Pattern Int -> Pattern Double -> Pattern Controls
+lhtrecv::Pattern Int -> Pattern Controls
+lkick::Pattern Double -> Pattern Controls
+lkickCount::String -> Pattern Controls
+lkickCountTo::String -> Pattern Double -> Pattern Controls
+lkickTake::String -> [Double] -> Pattern Controls
+lkickbus::Pattern Int -> Pattern Double -> Pattern Controls
+lkickrecv::Pattern Int -> Pattern Controls
+llotom::Pattern Double -> Pattern Controls
+llotomCount::String -> Pattern Controls
+llotomCountTo::String -> Pattern Double -> Pattern Controls
+llotomTake::String -> [Double] -> Pattern Controls
+llotombus::Pattern Int -> Pattern Double -> Pattern Controls
+llotomrecv::Pattern Int -> Pattern Controls
+llt::Pattern Double -> Pattern Controls
+lltbus::Pattern Int -> Pattern Double -> Pattern Controls
+lltrecv::Pattern Int -> Pattern Controls
+lock::Pattern Double -> Pattern Controls
+lockCount::String -> Pattern Controls
+lockCountTo::String -> Pattern Double -> Pattern Controls
+lockTake::String -> [Double] -> Pattern Controls
+lockbus::Pattern Int -> Pattern Double -> Pattern Controls
+lockrecv::Pattern Int -> Pattern Controls
+loh::Pattern Double -> Pattern Controls
+lohbus::Pattern Int -> Pattern Double -> Pattern Controls
+lohrecv::Pattern Int -> Pattern Controls
+loop::Pattern Double -> Pattern Controls
+loopCount::String -> Pattern Controls
+loopCountTo::String -> Pattern Double -> Pattern Controls
+loopTake::String -> [Double] -> Pattern Controls
+loopbus::Pattern Int -> Pattern Double -> Pattern Controls
+lophat::Pattern Double -> Pattern Controls
+lophatCount::String -> Pattern Controls
+lophatCountTo::String -> Pattern Double -> Pattern Controls
+lophatTake::String -> [Double] -> Pattern Controls
+lophatbus::Pattern Int -> Pattern Double -> Pattern Controls
+lophatrecv::Pattern Int -> Pattern Controls
+lpf::Pattern Double -> Pattern Controls
+lpfbus::Pattern Int -> Pattern Double -> Pattern Controls
+lpfrecv::Pattern Int -> Pattern Controls
+lpq::Pattern Double -> Pattern Controls
+lpqbus::Pattern Int -> Pattern Double -> Pattern Controls
+lpqrecv::Pattern Int -> Pattern Controls
+lrate::Pattern Double -> Pattern Controls
+lrateCount::String -> Pattern Controls
+lrateCountTo::String -> Pattern Double -> Pattern Controls
+lrateTake::String -> [Double] -> Pattern Controls
+lratebus::Pattern Int -> Pattern Double -> Pattern Controls
+lraterecv::Pattern Int -> Pattern Controls
+lsize::Pattern Double -> Pattern Controls
+lsizeCount::String -> Pattern Controls
+lsizeCountTo::String -> Pattern Double -> Pattern Controls
+lsizeTake::String -> [Double] -> Pattern Controls
+lsizebus::Pattern Int -> Pattern Double -> Pattern Controls
+lsizerecv::Pattern Int -> Pattern Controls
+lsn::Pattern Double -> Pattern Controls
+lsnare::Pattern Double -> Pattern Controls
+lsnareCount::String -> Pattern Controls
+lsnareCountTo::String -> Pattern Double -> Pattern Controls
+lsnareTake::String -> [Double] -> Pattern Controls
+lsnarebus::Pattern Int -> Pattern Double -> Pattern Controls
+lsnarerecv::Pattern Int -> Pattern Controls
+lsnbus::Pattern Int -> Pattern Double -> Pattern Controls
+lsnrecv::Pattern Int -> Pattern Controls
+mF::String -> String -> Controls
+mI::String -> String -> Controls
+mS::String -> String -> Controls
+midibend::Pattern Double -> Pattern Controls
+midibendCount::String -> Pattern Controls
+midibendCountTo::String -> Pattern Double -> Pattern Controls
+midibendTake::String -> [Double] -> Pattern Controls
+midibendbus::Pattern Int -> Pattern Double -> Pattern Controls
+midichan::Pattern Double -> Pattern Controls
+midichanCount::String -> Pattern Controls
+midichanCountTo::String -> Pattern Double -> Pattern Controls
+midichanTake::String -> [Double] -> Pattern Controls
+midichanbus::Pattern Int -> Pattern Double -> Pattern Controls
+midicmd::Pattern String -> Pattern Controls
+midicmdTake::String -> [Double] -> Pattern Controls
+midicmdbus::Pattern Int -> Pattern String -> Pattern Controls
+midinote::Pattern Note -> Pattern Controls
+miditouch::Pattern Double -> Pattern Controls
+miditouchCount::String -> Pattern Controls
+miditouchCountTo::String -> Pattern Double -> Pattern Controls
+miditouchTake::String -> [Double] -> Pattern Controls
+miditouchbus::Pattern Int -> Pattern Double -> Pattern Controls
+minutes::Pattern Double -> Pattern Controls
+minutesCount::String -> Pattern Controls
+minutesCountTo::String -> Pattern Double -> Pattern Controls
+minutesTake::String -> [Double] -> Pattern Controls
+minutesbus::Pattern Int -> Pattern Double -> Pattern Controls
+modwheel::Pattern Double -> Pattern Controls
+modwheelCount::String -> Pattern Controls
+modwheelCountTo::String -> Pattern Double -> Pattern Controls
+modwheelTake::String -> [Double] -> Pattern Controls
+modwheelbus::Pattern Int -> Pattern Double -> Pattern Controls
+modwheelrecv::Pattern Int -> Pattern Controls
+mtranspose::Pattern Double -> Pattern Controls
+mtransposeCount::String -> Pattern Controls
+mtransposeCountTo::String -> Pattern Double -> Pattern Controls
+mtransposeTake::String -> [Double] -> Pattern Controls
+mtransposebus::Pattern Int -> Pattern Double -> Pattern Controls
+mtransposerecv::Pattern Int -> Pattern Controls
+n::Pattern Note -> Pattern Controls
+nCount::String -> Pattern Controls
+nCountTo::String -> Pattern Double -> Pattern Controls
+nTake::String -> [Double] -> Pattern Controls
+nbus::Pattern Int -> Pattern Note -> Pattern Controls
+note::Pattern Note -> Pattern Controls
+noteCount::String -> Pattern Controls
+noteCountTo::String -> Pattern Double -> Pattern Controls
+noteTake::String -> [Double] -> Pattern Controls
+notebus::Pattern Int -> Pattern Note -> Pattern Controls
+nrpn::Pattern String -> Pattern Controls
+nrpnn::Pattern Int -> Pattern Controls
+nrpnv::Pattern Int -> Pattern Controls
+nudge::Pattern Double -> Pattern Controls
+nudgeCount::String -> Pattern Controls
+nudgeCountTo::String -> Pattern Double -> Pattern Controls
+nudgeTake::String -> [Double] -> Pattern Controls
+nudgebus::Pattern Int -> Pattern Double -> Pattern Controls
+nudgerecv::Pattern Int -> Pattern Controls
+number::Pattern Note -> Pattern Controls
+octave::Pattern Int -> Pattern Controls
+octaveCount::String -> Pattern Controls
+octaveCountTo::String -> Pattern Double -> Pattern Controls
+octaveR::Pattern Double -> Pattern Controls
+octaveRCount::String -> Pattern Controls
+octaveRCountTo::String -> Pattern Double -> Pattern Controls
+octaveRTake::String -> [Double] -> Pattern Controls
+octaveRbus::Pattern Int -> Pattern Double -> Pattern Controls
+octaveRrecv::Pattern Int -> Pattern Controls
+octaveTake::String -> [Double] -> Pattern Controls
+octavebus::Pattern Int -> Pattern Int -> Pattern Controls
+octer::Pattern Double -> Pattern Controls
+octerCount::String -> Pattern Controls
+octerCountTo::String -> Pattern Double -> Pattern Controls
+octerTake::String -> [Double] -> Pattern Controls
+octerbus::Pattern Int -> Pattern Double -> Pattern Controls
+octerrecv::Pattern Int -> Pattern Controls
+octersub::Pattern Double -> Pattern Controls
+octersubCount::String -> Pattern Controls
+octersubCountTo::String -> Pattern Double -> Pattern Controls
+octersubTake::String -> [Double] -> Pattern Controls
+octersubbus::Pattern Int -> Pattern Double -> Pattern Controls
+octersubrecv::Pattern Int -> Pattern Controls
+octersubsub::Pattern Double -> Pattern Controls
+octersubsubCount::String -> Pattern Controls
+octersubsubCountTo::String -> Pattern Double -> Pattern Controls
+octersubsubTake::String -> [Double] -> Pattern Controls
+octersubsubbus::Pattern Int -> Pattern Double -> Pattern Controls
+octersubsubrecv::Pattern Int -> Pattern Controls
+offset::Pattern Double -> Pattern Controls
+offsetCount::String -> Pattern Controls
+offsetCountTo::String -> Pattern Double -> Pattern Controls
+offsetTake::String -> [Double] -> Pattern Controls
+offsetbus::Pattern Int -> Pattern Double -> Pattern Controls
+ohdecay::Pattern Double -> Pattern Controls
+ohdecaybus::Pattern Int -> Pattern Double -> Pattern Controls
+ohdecayrecv::Pattern Int -> Pattern Controls
+ophatdecay::Pattern Double -> Pattern Controls
+ophatdecayCount::String -> Pattern Controls
+ophatdecayCountTo::String -> Pattern Double -> Pattern Controls
+ophatdecayTake::String -> [Double] -> Pattern Controls
+ophatdecaybus::Pattern Int -> Pattern Double -> Pattern Controls
+ophatdecayrecv::Pattern Int -> Pattern Controls
+orbit::Pattern Int -> Pattern Controls
+orbitCount::String -> Pattern Controls
+orbitCountTo::String -> Pattern Double -> Pattern Controls
+orbitTake::String -> [Double] -> Pattern Controls
+orbitbus::Pattern Int -> Pattern Int -> Pattern Controls
+orbitrecv::Pattern Int -> Pattern Controls
+overgain::Pattern Double -> Pattern Controls
+overgainCount::String -> Pattern Controls
+overgainCountTo::String -> Pattern Double -> Pattern Controls
+overgainTake::String -> [Double] -> Pattern Controls
+overgainbus::Pattern Int -> Pattern Double -> Pattern Controls
+overshape::Pattern Double -> Pattern Controls
+overshapeCount::String -> Pattern Controls
+overshapeCountTo::String -> Pattern Double -> Pattern Controls
+overshapeTake::String -> [Double] -> Pattern Controls
+overshapebus::Pattern Int -> Pattern Double -> Pattern Controls
+overshaperecv::Pattern Int -> Pattern Controls
+pB::String -> Pattern Bool -> Pattern Controls
+pF::String -> Pattern Double -> Pattern Controls
+pI::String -> Pattern Int -> Pattern Controls
+pN::String -> Pattern Note -> Pattern Controls
+pR::String -> Pattern Rational -> Pattern Controls
+pS::String -> Pattern String -> Pattern Controls
+pStateF::String -> String -> (Maybe Double -> Double) -> Pattern Controls
+pStateList::String -> String -> [Value] -> Pattern Controls
+pStateListF::String -> String -> [Double] -> Pattern Controls
+pStateListS::String -> String -> [String] -> Pattern Controls
+pX::String -> Pattern [Number] -> Pattern Controls
+pan::Pattern Double -> Pattern Controls
+panCount::String -> Pattern Controls
+panCountTo::String -> Pattern Double -> Pattern Controls
+panTake::String -> [Double] -> Pattern Controls
+panbus::Pattern Int -> Pattern Double -> Pattern Controls
+panorient::Pattern Double -> Pattern Controls
+panorientCount::String -> Pattern Controls
+panorientCountTo::String -> Pattern Double -> Pattern Controls
+panorientTake::String -> [Double] -> Pattern Controls
+panorientbus::Pattern Int -> Pattern Double -> Pattern Controls
+panorientrecv::Pattern Int -> Pattern Controls
+panrecv::Pattern Int -> Pattern Controls
+panspan::Pattern Double -> Pattern Controls
+panspanCount::String -> Pattern Controls
+panspanCountTo::String -> Pattern Double -> Pattern Controls
+panspanTake::String -> [Double] -> Pattern Controls
+panspanbus::Pattern Int -> Pattern Double -> Pattern Controls
+panspanrecv::Pattern Int -> Pattern Controls
+pansplay::Pattern Double -> Pattern Controls
+pansplayCount::String -> Pattern Controls
+pansplayCountTo::String -> Pattern Double -> Pattern Controls
+pansplayTake::String -> [Double] -> Pattern Controls
+pansplaybus::Pattern Int -> Pattern Double -> Pattern Controls
+pansplayrecv::Pattern Int -> Pattern Controls
+panwidth::Pattern Double -> Pattern Controls
+panwidthCount::String -> Pattern Controls
+panwidthCountTo::String -> Pattern Double -> Pattern Controls
+panwidthTake::String -> [Double] -> Pattern Controls
+panwidthbus::Pattern Int -> Pattern Double -> Pattern Controls
+panwidthrecv::Pattern Int -> Pattern Controls
+partials::Pattern Double -> Pattern Controls
+partialsCount::String -> Pattern Controls
+partialsCountTo::String -> Pattern Double -> Pattern Controls
+partialsTake::String -> [Double] -> Pattern Controls
+partialsbus::Pattern Int -> Pattern Double -> Pattern Controls
+partialsrecv::Pattern Int -> Pattern Controls
+phasdp::Pattern Double -> Pattern Controls
+phasdpbus::Pattern Int -> Pattern Double -> Pattern Controls
+phasdprecv::Pattern Int -> Pattern Controls
+phaserdepth::Pattern Double -> Pattern Controls
+phaserdepthCount::String -> Pattern Controls
+phaserdepthCountTo::String -> Pattern Double -> Pattern Controls
+phaserdepthTake::String -> [Double] -> Pattern Controls
+phaserdepthbus::Pattern Int -> Pattern Double -> Pattern Controls
+phaserdepthrecv::Pattern Int -> Pattern Controls
+phaserrate::Pattern Double -> Pattern Controls
+phaserrateCount::String -> Pattern Controls
+phaserrateCountTo::String -> Pattern Double -> Pattern Controls
+phaserrateTake::String -> [Double] -> Pattern Controls
+phaserratebus::Pattern Int -> Pattern Double -> Pattern Controls
+phaserraterecv::Pattern Int -> Pattern Controls
+phasr::Pattern Double -> Pattern Controls
+phasrbus::Pattern Int -> Pattern Double -> Pattern Controls
+phasrrecv::Pattern Int -> Pattern Controls
+pit1::Pattern Double -> Pattern Controls
+pit1bus::Pattern Int -> Pattern Double -> Pattern Controls
+pit1recv::Pattern Int -> Pattern Controls
+pit2::Pattern Double -> Pattern Controls
+pit2bus::Pattern Int -> Pattern Double -> Pattern Controls
+pit2recv::Pattern Int -> Pattern Controls
+pit3::Pattern Double -> Pattern Controls
+pit3bus::Pattern Int -> Pattern Double -> Pattern Controls
+pit3recv::Pattern Int -> Pattern Controls
+pitch1::Pattern Double -> Pattern Controls
+pitch1Count::String -> Pattern Controls
+pitch1CountTo::String -> Pattern Double -> Pattern Controls
+pitch1Take::String -> [Double] -> Pattern Controls
+pitch1bus::Pattern Int -> Pattern Double -> Pattern Controls
+pitch1recv::Pattern Int -> Pattern Controls
+pitch2::Pattern Double -> Pattern Controls
+pitch2Count::String -> Pattern Controls
+pitch2CountTo::String -> Pattern Double -> Pattern Controls
+pitch2Take::String -> [Double] -> Pattern Controls
+pitch2bus::Pattern Int -> Pattern Double -> Pattern Controls
+pitch2recv::Pattern Int -> Pattern Controls
+pitch3::Pattern Double -> Pattern Controls
+pitch3Count::String -> Pattern Controls
+pitch3CountTo::String -> Pattern Double -> Pattern Controls
+pitch3Take::String -> [Double] -> Pattern Controls
+pitch3bus::Pattern Int -> Pattern Double -> Pattern Controls
+pitch3recv::Pattern Int -> Pattern Controls
+polyTouch::Pattern Double -> Pattern Controls
+polyTouchCount::String -> Pattern Controls
+polyTouchCountTo::String -> Pattern Double -> Pattern Controls
+polyTouchTake::String -> [Double] -> Pattern Controls
+polyTouchbus::Pattern Int -> Pattern Double -> Pattern Controls
+por::Pattern Double -> Pattern Controls
+porbus::Pattern Int -> Pattern Double -> Pattern Controls
+porrecv::Pattern Int -> Pattern Controls
+portamento::Pattern Double -> Pattern Controls
+portamentoCount::String -> Pattern Controls
+portamentoCountTo::String -> Pattern Double -> Pattern Controls
+portamentoTake::String -> [Double] -> Pattern Controls
+portamentobus::Pattern Int -> Pattern Double -> Pattern Controls
+portamentorecv::Pattern Int -> Pattern Controls
+progNum::Pattern Double -> Pattern Controls
+progNumCount::String -> Pattern Controls
+progNumCountTo::String -> Pattern Double -> Pattern Controls
+progNumTake::String -> [Double] -> Pattern Controls
+progNumbus::Pattern Int -> Pattern Double -> Pattern Controls
+rate::Pattern Double -> Pattern Controls
+rateCount::String -> Pattern Controls
+rateCountTo::String -> Pattern Double -> Pattern Controls
+rateTake::String -> [Double] -> Pattern Controls
+ratebus::Pattern Int -> Pattern Double -> Pattern Controls
+raterecv::Pattern Int -> Pattern Controls
+real::Pattern Double -> Pattern Controls
+realCount::String -> Pattern Controls
+realCountTo::String -> Pattern Double -> Pattern Controls
+realTake::String -> [Double] -> Pattern Controls
+realbus::Pattern Int -> Pattern Double -> Pattern Controls
+realrecv::Pattern Int -> Pattern Controls
+rel::Pattern Double -> Pattern Controls
+relbus::Pattern Int -> Pattern Double -> Pattern Controls
+release::Pattern Double -> Pattern Controls
+releaseCount::String -> Pattern Controls
+releaseCountTo::String -> Pattern Double -> Pattern Controls
+releaseTake::String -> [Double] -> Pattern Controls
+releasebus::Pattern Int -> Pattern Double -> Pattern Controls
+releaserecv::Pattern Int -> Pattern Controls
+relrecv::Pattern Int -> Pattern Controls
+resonance::Pattern Double -> Pattern Controls
+resonanceCount::String -> Pattern Controls
+resonanceCountTo::String -> Pattern Double -> Pattern Controls
+resonanceTake::String -> [Double] -> Pattern Controls
+resonancebus::Pattern Int -> Pattern Double -> Pattern Controls
+resonancerecv::Pattern Int -> Pattern Controls
+ring::Pattern Double -> Pattern Controls
+ringCount::String -> Pattern Controls
+ringCountTo::String -> Pattern Double -> Pattern Controls
+ringTake::String -> [Double] -> Pattern Controls
+ringbus::Pattern Int -> Pattern Double -> Pattern Controls
+ringdf::Pattern Double -> Pattern Controls
+ringdfCount::String -> Pattern Controls
+ringdfCountTo::String -> Pattern Double -> Pattern Controls
+ringdfTake::String -> [Double] -> Pattern Controls
+ringdfbus::Pattern Int -> Pattern Double -> Pattern Controls
+ringdfrecv::Pattern Int -> Pattern Controls
+ringf::Pattern Double -> Pattern Controls
+ringfCount::String -> Pattern Controls
+ringfCountTo::String -> Pattern Double -> Pattern Controls
+ringfTake::String -> [Double] -> Pattern Controls
+ringfbus::Pattern Int -> Pattern Double -> Pattern Controls
+ringfrecv::Pattern Int -> Pattern Controls
+ringrecv::Pattern Int -> Pattern Controls
+room::Pattern Double -> Pattern Controls
+roomCount::String -> Pattern Controls
+roomCountTo::String -> Pattern Double -> Pattern Controls
+roomTake::String -> [Double] -> Pattern Controls
+roombus::Pattern Int -> Pattern Double -> Pattern Controls
+roomrecv::Pattern Int -> Pattern Controls
+s::Pattern String -> Pattern Controls
+sTake::String -> [String] -> Pattern Controls
+sag::Pattern Double -> Pattern Controls
+sagbus::Pattern Int -> Pattern Double -> Pattern Controls
+sagogo::Pattern Double -> Pattern Controls
+sagogoCount::String -> Pattern Controls
+sagogoCountTo::String -> Pattern Double -> Pattern Controls
+sagogoTake::String -> [Double] -> Pattern Controls
+sagogobus::Pattern Int -> Pattern Double -> Pattern Controls
+sagogorecv::Pattern Int -> Pattern Controls
+sagrecv::Pattern Int -> Pattern Controls
+scl::Pattern Double -> Pattern Controls
+sclap::Pattern Double -> Pattern Controls
+sclapCount::String -> Pattern Controls
+sclapCountTo::String -> Pattern Double -> Pattern Controls
+sclapTake::String -> [Double] -> Pattern Controls
+sclapbus::Pattern Int -> Pattern Double -> Pattern Controls
+sclaprecv::Pattern Int -> Pattern Controls
+sclaves::Pattern Double -> Pattern Controls
+sclavesCount::String -> Pattern Controls
+sclavesCountTo::String -> Pattern Double -> Pattern Controls
+sclavesTake::String -> [Double] -> Pattern Controls
+sclavesbus::Pattern Int -> Pattern Double -> Pattern Controls
+sclavesrecv::Pattern Int -> Pattern Controls
+sclbus::Pattern Int -> Pattern Double -> Pattern Controls
+sclrecv::Pattern Int -> Pattern Controls
+scp::Pattern Double -> Pattern Controls
+scpbus::Pattern Int -> Pattern Double -> Pattern Controls
+scprecv::Pattern Int -> Pattern Controls
+scr::Pattern Double -> Pattern Controls
+scram::Pattern Double -> Pattern Controls
+scramCount::String -> Pattern Controls
+scramCountTo::String -> Pattern Double -> Pattern Controls
+scramTake::String -> [Double] -> Pattern Controls
+scrambus::Pattern Int -> Pattern Double -> Pattern Controls
+scramrecv::Pattern Int -> Pattern Controls
+scrash::Pattern Double -> Pattern Controls
+scrashCount::String -> Pattern Controls
+scrashCountTo::String -> Pattern Double -> Pattern Controls
+scrashTake::String -> [Double] -> Pattern Controls
+scrashbus::Pattern Int -> Pattern Double -> Pattern Controls
+scrashrecv::Pattern Int -> Pattern Controls
+scrbus::Pattern Int -> Pattern Double -> Pattern Controls
+scrrecv::Pattern Int -> Pattern Controls
+seconds::Pattern Double -> Pattern Controls
+secondsCount::String -> Pattern Controls
+secondsCountTo::String -> Pattern Double -> Pattern Controls
+secondsTake::String -> [Double] -> Pattern Controls
+secondsbus::Pattern Int -> Pattern Double -> Pattern Controls
+semitone::Pattern Double -> Pattern Controls
+semitoneCount::String -> Pattern Controls
+semitoneCountTo::String -> Pattern Double -> Pattern Controls
+semitoneTake::String -> [Double] -> Pattern Controls
+semitonebus::Pattern Int -> Pattern Double -> Pattern Controls
+semitonerecv::Pattern Int -> Pattern Controls
+shape::Pattern Double -> Pattern Controls
+shapeCount::String -> Pattern Controls
+shapeCountTo::String -> Pattern Double -> Pattern Controls
+shapeTake::String -> [Double] -> Pattern Controls
+shapebus::Pattern Int -> Pattern Double -> Pattern Controls
+shaperecv::Pattern Int -> Pattern Controls
+size::Pattern Double -> Pattern Controls
+sizeCount::String -> Pattern Controls
+sizeCountTo::String -> Pattern Double -> Pattern Controls
+sizeTake::String -> [Double] -> Pattern Controls
+sizebus::Pattern Int -> Pattern Double -> Pattern Controls
+sizerecv::Pattern Int -> Pattern Controls
+sld::Pattern Double -> Pattern Controls
+sldbus::Pattern Int -> Pattern Double -> Pattern Controls
+sldrecv::Pattern Int -> Pattern Controls
+slide::Pattern Double -> Pattern Controls
+slideCount::String -> Pattern Controls
+slideCountTo::String -> Pattern Double -> Pattern Controls
+slideTake::String -> [Double] -> Pattern Controls
+slidebus::Pattern Int -> Pattern Double -> Pattern Controls
+slider0::Pattern Double -> Pattern Controls
+slider0Count::String -> Pattern Controls
+slider0CountTo::String -> Pattern Double -> Pattern Controls
+slider0Take::String -> [Double] -> Pattern Controls
+slider0bus::Pattern Int -> Pattern Double -> Pattern Controls
+slider0recv::Pattern Int -> Pattern Controls
+slider1::Pattern Double -> Pattern Controls
+slider10::Pattern Double -> Pattern Controls
+slider10Count::String -> Pattern Controls
+slider10CountTo::String -> Pattern Double -> Pattern Controls
+slider10Take::String -> [Double] -> Pattern Controls
+slider10bus::Pattern Int -> Pattern Double -> Pattern Controls
+slider10recv::Pattern Int -> Pattern Controls
+slider11::Pattern Double -> Pattern Controls
+slider11Count::String -> Pattern Controls
+slider11CountTo::String -> Pattern Double -> Pattern Controls
+slider11Take::String -> [Double] -> Pattern Controls
+slider11bus::Pattern Int -> Pattern Double -> Pattern Controls
+slider11recv::Pattern Int -> Pattern Controls
+slider12::Pattern Double -> Pattern Controls
+slider12Count::String -> Pattern Controls
+slider12CountTo::String -> Pattern Double -> Pattern Controls
+slider12Take::String -> [Double] -> Pattern Controls
+slider12bus::Pattern Int -> Pattern Double -> Pattern Controls
+slider12recv::Pattern Int -> Pattern Controls
+slider13::Pattern Double -> Pattern Controls
+slider13Count::String -> Pattern Controls
+slider13CountTo::String -> Pattern Double -> Pattern Controls
+slider13Take::String -> [Double] -> Pattern Controls
+slider13bus::Pattern Int -> Pattern Double -> Pattern Controls
+slider13recv::Pattern Int -> Pattern Controls
+slider14::Pattern Double -> Pattern Controls
+slider14Count::String -> Pattern Controls
+slider14CountTo::String -> Pattern Double -> Pattern Controls
+slider14Take::String -> [Double] -> Pattern Controls
+slider14bus::Pattern Int -> Pattern Double -> Pattern Controls
+slider14recv::Pattern Int -> Pattern Controls
+slider15::Pattern Double -> Pattern Controls
+slider15Count::String -> Pattern Controls
+slider15CountTo::String -> Pattern Double -> Pattern Controls
+slider15Take::String -> [Double] -> Pattern Controls
+slider15bus::Pattern Int -> Pattern Double -> Pattern Controls
+slider15recv::Pattern Int -> Pattern Controls
+slider1Count::String -> Pattern Controls
+slider1CountTo::String -> Pattern Double -> Pattern Controls
+slider1Take::String -> [Double] -> Pattern Controls
+slider1bus::Pattern Int -> Pattern Double -> Pattern Controls
+slider1recv::Pattern Int -> Pattern Controls
+slider2::Pattern Double -> Pattern Controls
+slider2Count::String -> Pattern Controls
+slider2CountTo::String -> Pattern Double -> Pattern Controls
+slider2Take::String -> [Double] -> Pattern Controls
+slider2bus::Pattern Int -> Pattern Double -> Pattern Controls
+slider2recv::Pattern Int -> Pattern Controls
+slider3::Pattern Double -> Pattern Controls
+slider3Count::String -> Pattern Controls
+slider3CountTo::String -> Pattern Double -> Pattern Controls
+slider3Take::String -> [Double] -> Pattern Controls
+slider3bus::Pattern Int -> Pattern Double -> Pattern Controls
+slider3recv::Pattern Int -> Pattern Controls
+slider4::Pattern Double -> Pattern Controls
+slider4Count::String -> Pattern Controls
+slider4CountTo::String -> Pattern Double -> Pattern Controls
+slider4Take::String -> [Double] -> Pattern Controls
+slider4bus::Pattern Int -> Pattern Double -> Pattern Controls
+slider4recv::Pattern Int -> Pattern Controls
+slider5::Pattern Double -> Pattern Controls
+slider5Count::String -> Pattern Controls
+slider5CountTo::String -> Pattern Double -> Pattern Controls
+slider5Take::String -> [Double] -> Pattern Controls
+slider5bus::Pattern Int -> Pattern Double -> Pattern Controls
+slider5recv::Pattern Int -> Pattern Controls
+slider6::Pattern Double -> Pattern Controls
+slider6Count::String -> Pattern Controls
+slider6CountTo::String -> Pattern Double -> Pattern Controls
+slider6Take::String -> [Double] -> Pattern Controls
+slider6bus::Pattern Int -> Pattern Double -> Pattern Controls
+slider6recv::Pattern Int -> Pattern Controls
+slider7::Pattern Double -> Pattern Controls
+slider7Count::String -> Pattern Controls
+slider7CountTo::String -> Pattern Double -> Pattern Controls
+slider7Take::String -> [Double] -> Pattern Controls
+slider7bus::Pattern Int -> Pattern Double -> Pattern Controls
+slider7recv::Pattern Int -> Pattern Controls
+slider8::Pattern Double -> Pattern Controls
+slider8Count::String -> Pattern Controls
+slider8CountTo::String -> Pattern Double -> Pattern Controls
+slider8Take::String -> [Double] -> Pattern Controls
+slider8bus::Pattern Int -> Pattern Double -> Pattern Controls
+slider8recv::Pattern Int -> Pattern Controls
+slider9::Pattern Double -> Pattern Controls
+slider9Count::String -> Pattern Controls
+slider9CountTo::String -> Pattern Double -> Pattern Controls
+slider9Take::String -> [Double] -> Pattern Controls
+slider9bus::Pattern Int -> Pattern Double -> Pattern Controls
+slider9recv::Pattern Int -> Pattern Controls
+sliderecv::Pattern Int -> Pattern Controls
+smear::Pattern Double -> Pattern Controls
+smearCount::String -> Pattern Controls
+smearCountTo::String -> Pattern Double -> Pattern Controls
+smearTake::String -> [Double] -> Pattern Controls
+smearbus::Pattern Int -> Pattern Double -> Pattern Controls
+smearrecv::Pattern Int -> Pattern Controls
+songPtr::Pattern Double -> Pattern Controls
+songPtrCount::String -> Pattern Controls
+songPtrCountTo::String -> Pattern Double -> Pattern Controls
+songPtrTake::String -> [Double] -> Pattern Controls
+songPtrbus::Pattern Int -> Pattern Double -> Pattern Controls
+sound::Pattern String -> Pattern Controls
+speed::Pattern Double -> Pattern Controls
+speedCount::String -> Pattern Controls
+speedCountTo::String -> Pattern Double -> Pattern Controls
+speedTake::String -> [Double] -> Pattern Controls
+speedbus::Pattern Int -> Pattern Double -> Pattern Controls
+squiz::Pattern Double -> Pattern Controls
+squizCount::String -> Pattern Controls
+squizCountTo::String -> Pattern Double -> Pattern Controls
+squizTake::String -> [Double] -> Pattern Controls
+squizbus::Pattern Int -> Pattern Double -> Pattern Controls
+squizrecv::Pattern Int -> Pattern Controls
+std::Pattern Double -> Pattern Controls
+stdbus::Pattern Int -> Pattern Double -> Pattern Controls
+stdrecv::Pattern Int -> Pattern Controls
+stepsPerOctave::Pattern Double -> Pattern Controls
+stepsPerOctaveCount::String -> Pattern Controls
+stepsPerOctaveCountTo::String -> Pattern Double -> Pattern Controls
+stepsPerOctaveTake::String -> [Double] -> Pattern Controls
+stepsPerOctavebus::Pattern Int -> Pattern Double -> Pattern Controls
+stepsPerOctaverecv::Pattern Int -> Pattern Controls
+stt::Pattern Double -> Pattern Controls
+sttbus::Pattern Int -> Pattern Double -> Pattern Controls
+sttrecv::Pattern Int -> Pattern Controls
+stutterdepth::Pattern Double -> Pattern Controls
+stutterdepthCount::String -> Pattern Controls
+stutterdepthCountTo::String -> Pattern Double -> Pattern Controls
+stutterdepthTake::String -> [Double] -> Pattern Controls
+stutterdepthbus::Pattern Int -> Pattern Double -> Pattern Controls
+stutterdepthrecv::Pattern Int -> Pattern Controls
+stuttertime::Pattern Double -> Pattern Controls
+stuttertimeCount::String -> Pattern Controls
+stuttertimeCountTo::String -> Pattern Double -> Pattern Controls
+stuttertimeTake::String -> [Double] -> Pattern Controls
+stuttertimebus::Pattern Int -> Pattern Double -> Pattern Controls
+stuttertimerecv::Pattern Int -> Pattern Controls
+sus::Pattern Double -> Pattern Controls
+sustain::Pattern Double -> Pattern Controls
+sustainCount::String -> Pattern Controls
+sustainCountTo::String -> Pattern Double -> Pattern Controls
+sustainTake::String -> [Double] -> Pattern Controls
+sustainbus::Pattern Int -> Pattern Double -> Pattern Controls
+sustainpedal::Pattern Double -> Pattern Controls
+sustainpedalCount::String -> Pattern Controls
+sustainpedalCountTo::String -> Pattern Double -> Pattern Controls
+sustainpedalTake::String -> [Double] -> Pattern Controls
+sustainpedalbus::Pattern Int -> Pattern Double -> Pattern Controls
+sustainpedalrecv::Pattern Int -> Pattern Controls
+sz::Pattern Double -> Pattern Controls
+szbus::Pattern Int -> Pattern Double -> Pattern Controls
+szrecv::Pattern Int -> Pattern Controls
+tdecay::Pattern Double -> Pattern Controls
+tdecaybus::Pattern Int -> Pattern Double -> Pattern Controls
+tdecayrecv::Pattern Int -> Pattern Controls
+timescale::Pattern Double -> Pattern Controls
+timescaleCount::String -> Pattern Controls
+timescaleCountTo::String -> Pattern Double -> Pattern Controls
+timescaleTake::String -> [Double] -> Pattern Controls
+timescalebus::Pattern Int -> Pattern Double -> Pattern Controls
+timescalewin::Pattern Double -> Pattern Controls
+timescalewinCount::String -> Pattern Controls
+timescalewinCountTo::String -> Pattern Double -> Pattern Controls
+timescalewinTake::String -> [Double] -> Pattern Controls
+timescalewinbus::Pattern Int -> Pattern Double -> Pattern Controls
+to::Pattern Double -> Pattern Controls
+toArg::Pattern String -> Pattern Controls
+toArgTake::String -> [Double] -> Pattern Controls
+toArgbus::Pattern Int -> Pattern String -> Pattern Controls
+toArgrecv::Pattern Int -> Pattern Controls
+toCount::String -> Pattern Controls
+toCountTo::String -> Pattern Double -> Pattern Controls
+toTake::String -> [Double] -> Pattern Controls
+tobus::Pattern Int -> Pattern Double -> Pattern Controls
+tomdecay::Pattern Double -> Pattern Controls
+tomdecayCount::String -> Pattern Controls
+tomdecayCountTo::String -> Pattern Double -> Pattern Controls
+tomdecayTake::String -> [Double] -> Pattern Controls
+tomdecaybus::Pattern Int -> Pattern Double -> Pattern Controls
+tomdecayrecv::Pattern Int -> Pattern Controls
+torecv::Pattern Int -> Pattern Controls
+tremdp::Pattern Double -> Pattern Controls
+tremdpbus::Pattern Int -> Pattern Double -> Pattern Controls
+tremdprecv::Pattern Int -> Pattern Controls
+tremolodepth::Pattern Double -> Pattern Controls
+tremolodepthCount::String -> Pattern Controls
+tremolodepthCountTo::String -> Pattern Double -> Pattern Controls
+tremolodepthTake::String -> [Double] -> Pattern Controls
+tremolodepthbus::Pattern Int -> Pattern Double -> Pattern Controls
+tremolodepthrecv::Pattern Int -> Pattern Controls
+tremolorate::Pattern Double -> Pattern Controls
+tremolorateCount::String -> Pattern Controls
+tremolorateCountTo::String -> Pattern Double -> Pattern Controls
+tremolorateTake::String -> [Double] -> Pattern Controls
+tremoloratebus::Pattern Int -> Pattern Double -> Pattern Controls
+tremoloraterecv::Pattern Int -> Pattern Controls
+tremr::Pattern Double -> Pattern Controls
+tremrbus::Pattern Int -> Pattern Double -> Pattern Controls
+tremrrecv::Pattern Int -> Pattern Controls
+triode::Pattern Double -> Pattern Controls
+triodeCount::String -> Pattern Controls
+triodeCountTo::String -> Pattern Double -> Pattern Controls
+triodeTake::String -> [Double] -> Pattern Controls
+triodebus::Pattern Int -> Pattern Double -> Pattern Controls
+trioderecv::Pattern Int -> Pattern Controls
+tsdelay::Pattern Double -> Pattern Controls
+tsdelayCount::String -> Pattern Controls
+tsdelayCountTo::String -> Pattern Double -> Pattern Controls
+tsdelayTake::String -> [Double] -> Pattern Controls
+tsdelaybus::Pattern Int -> Pattern Double -> Pattern Controls
+tsdelayrecv::Pattern Int -> Pattern Controls
+uid::Pattern Double -> Pattern Controls
+uidCount::String -> Pattern Controls
+uidCountTo::String -> Pattern Double -> Pattern Controls
+uidTake::String -> [Double] -> Pattern Controls
+uidbus::Pattern Int -> Pattern Double -> Pattern Controls
+unit::Pattern String -> Pattern Controls
+unitTake::String -> [Double] -> Pattern Controls
+unitbus::Pattern Int -> Pattern String -> Pattern Controls
+up::Pattern Note -> Pattern Controls
+val::Pattern Double -> Pattern Controls
+valCount::String -> Pattern Controls
+valCountTo::String -> Pattern Double -> Pattern Controls
+valTake::String -> [Double] -> Pattern Controls
+valbus::Pattern Int -> Pattern Double -> Pattern Controls
+vcf::Pattern Double -> Pattern Controls
+vcfbus::Pattern Int -> Pattern Double -> Pattern Controls
+vcfegint::Pattern Double -> Pattern Controls
+vcfegintCount::String -> Pattern Controls
+vcfegintCountTo::String -> Pattern Double -> Pattern Controls
+vcfegintTake::String -> [Double] -> Pattern Controls
+vcfegintbus::Pattern Int -> Pattern Double -> Pattern Controls
+vcfegintrecv::Pattern Int -> Pattern Controls
+vcfrecv::Pattern Int -> Pattern Controls
+vco::Pattern Double -> Pattern Controls
+vcobus::Pattern Int -> Pattern Double -> Pattern Controls
+vcoegint::Pattern Double -> Pattern Controls
+vcoegintCount::String -> Pattern Controls
+vcoegintCountTo::String -> Pattern Double -> Pattern Controls
+vcoegintTake::String -> [Double] -> Pattern Controls
+vcoegintbus::Pattern Int -> Pattern Double -> Pattern Controls
+vcoegintrecv::Pattern Int -> Pattern Controls
+vcorecv::Pattern Int -> Pattern Controls
+velocity::Pattern Double -> Pattern Controls
+velocityCount::String -> Pattern Controls
+velocityCountTo::String -> Pattern Double -> Pattern Controls
+velocityTake::String -> [Double] -> Pattern Controls
+velocitybus::Pattern Int -> Pattern Double -> Pattern Controls
+velocityrecv::Pattern Int -> Pattern Controls
+voi::Pattern Double -> Pattern Controls
+voibus::Pattern Int -> Pattern Double -> Pattern Controls
+voice::Pattern Double -> Pattern Controls
+voiceCount::String -> Pattern Controls
+voiceCountTo::String -> Pattern Double -> Pattern Controls
+voiceTake::String -> [Double] -> Pattern Controls
+voicebus::Pattern Int -> Pattern Double -> Pattern Controls
+voicerecv::Pattern Int -> Pattern Controls
+voirecv::Pattern Int -> Pattern Controls
+vowel::Pattern String -> Pattern Controls
+vowelTake::String -> [Double] -> Pattern Controls
+vowelbus::Pattern Int -> Pattern String -> Pattern Controls
+vowelrecv::Pattern Int -> Pattern Controls
+waveloss::Pattern Double -> Pattern Controls
+wavelossCount::String -> Pattern Controls
+wavelossCountTo::String -> Pattern Double -> Pattern Controls
+wavelossTake::String -> [Double] -> Pattern Controls
+wavelossbus::Pattern Int -> Pattern Double -> Pattern Controls
+wavelossrecv::Pattern Int -> Pattern Controls
+xsdelay::Pattern Double -> Pattern Controls
+xsdelayCount::String -> Pattern Controls
+xsdelayCountTo::String -> Pattern Double -> Pattern Controls
+xsdelayTake::String -> [Double] -> Pattern Controls
+xsdelaybus::Pattern Int -> Pattern Double -> Pattern Controls
+xsdelayrecv::Pattern Int -> Pattern Controls

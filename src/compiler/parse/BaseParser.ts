@@ -46,6 +46,13 @@ export abstract class BaseParser<T> {
       throw new ParseError(token, token.message);
     }
 
+    if (token.type === TokenType.UnusedKeyword) {
+      throw new ParseError(
+        token,
+        `Haskell keyword "${token.lexeme}" isn't currently supported`
+      );
+    }
+
     return token;
   }
 
@@ -68,24 +75,9 @@ export abstract class BaseParser<T> {
   }
 
   protected synchronize() {
-    this.advance();
-
-    while (!this.isAtEnd()) {
-      if (this.previous().type == TokenType.Semicolon) return;
-
-      switch (this.peek().type) {
-        case TokenType.Class:
-        case TokenType.Fun:
-        case TokenType.Var:
-        case TokenType.For:
-        case TokenType.If:
-        case TokenType.While:
-        case TokenType.Print:
-        case TokenType.Return:
-          return;
-      }
-
+    do {
       this.advance();
-    }
+      if (this.previous().type == TokenType.LineBreak) return;
+    } while (!this.isAtEnd());
   }
 }

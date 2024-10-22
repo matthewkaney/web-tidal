@@ -1,4 +1,6 @@
 import { reify, Cyclist, silence, stack } from "@strudel/core";
+import { registerVoicings } from "@strudel/tonal";
+import { simple } from "@strudel/tonal/ireal.mjs";
 
 import {
   initAudioOnFirstClick,
@@ -14,6 +16,9 @@ import { Bindings } from "../compiler/parse/API";
 initAudioOnFirstClick();
 const ctx = getAudioContext();
 registerSynthSounds();
+
+// Load default voicings
+registerVoicings("default", simple);
 
 // Default Strudel samples
 const ds = "https://raw.githubusercontent.com/felixroos/dough-samples/main";
@@ -51,6 +56,7 @@ scheduler.setPattern(silence);
 scheduler.start();
 
 export function hush() {
+  patMap.clear();
   scheduler.setPattern(silence);
 }
 
@@ -73,18 +79,34 @@ export function p(id: string | number) {
 
 // Bindings (similar to Tidal's BootTidal.hs)
 export const boot: Bindings = {
-  p: { type: "ID -> Pattern Controls -> IO Unit", value: p },
-  d1: { type: "Pattern Controls -> IO Unit", value: p(1) },
-  d2: { type: "Pattern Controls -> IO Unit", value: p(2) },
-  d3: { type: "Pattern Controls -> IO Unit", value: p(3) },
-  d4: { type: "Pattern Controls -> IO Unit", value: p(4) },
-  d5: { type: "Pattern Controls -> IO Unit", value: p(5) },
-  d6: { type: "Pattern Controls -> IO Unit", value: p(6) },
-  d7: { type: "Pattern Controls -> IO Unit", value: p(7) },
-  d8: { type: "Pattern Controls -> IO Unit", value: p(8) },
-  d9: { type: "Pattern Controls -> IO Unit", value: p(9) },
-  d10: { type: "Pattern Controls -> IO Unit", value: p(10) },
-  d11: { type: "Pattern Controls -> IO Unit", value: p(11) },
-  d12: { type: "Pattern Controls -> IO Unit", value: p(12) },
-  hush: { type: "IO Unit", value: { runIO: hush } },
+  p: { type: "ID -> Pattern Controls -> IO ()", value: p },
+  d1: { type: "Pattern Controls -> IO ()", value: p(1) },
+  d2: { type: "Pattern Controls -> IO ()", value: p(2) },
+  d3: { type: "Pattern Controls -> IO ()", value: p(3) },
+  d4: { type: "Pattern Controls -> IO ()", value: p(4) },
+  d5: { type: "Pattern Controls -> IO ()", value: p(5) },
+  d6: { type: "Pattern Controls -> IO ()", value: p(6) },
+  d7: { type: "Pattern Controls -> IO ()", value: p(7) },
+  d8: { type: "Pattern Controls -> IO ()", value: p(8) },
+  d9: { type: "Pattern Controls -> IO ()", value: p(9) },
+  d10: { type: "Pattern Controls -> IO ()", value: p(10) },
+  d11: { type: "Pattern Controls -> IO ()", value: p(11) },
+  d12: { type: "Pattern Controls -> IO ()", value: p(12) },
+  hush: { type: "IO ()", value: { runIO: hush } },
+  // setCps: {
+  //   type: "Number -> IO ()",
+  //   value: (cps) => ({
+  //     runIO: () => {
+  //       scheduler.setCps(cps);
+  //     },
+  //   }),
+  // },
+  // setCpm: {
+  //   type: "Number -> IO ()",
+  //   value: (cpm) => ({
+  //     runIO: () => {
+  //       scheduler.setCps(cpm / 60);
+  //     },
+  //   }),
+  // },
 };

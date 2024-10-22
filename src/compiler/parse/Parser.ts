@@ -30,8 +30,8 @@ export class Parser extends BaseParser<Stmt[]> {
           statements.push(this.expressionStatement());
         } catch (error) {
           if (error instanceof ParseError) {
-            // TODO: Synchronization
             this.reporter.error(error.token, error.message);
+            this.synchronize();
             break;
           } else {
             throw error;
@@ -47,6 +47,12 @@ export class Parser extends BaseParser<Stmt[]> {
     const expression = this.expression(0);
 
     if (!this.isAtEnd()) {
+      // This surely means we've encountered an error
+      if (expression.type === Expr.Type.Empty) {
+        let next = this.advance();
+        throw new ParseError(next, `Unexpected token "${next.lexeme}"`);
+      }
+
       this.consume(TokenType.LineBreak, "Expect new line after expression.");
     }
 
@@ -56,10 +62,15 @@ export class Parser extends BaseParser<Stmt[]> {
   private expression(precedence: number) {
     let left = this.application();
 
-    while (this.operators.has(this.peek().type)) {
-      let [opPrecedence, opAssociativity] = this.operators.get(
-        this.peek().type
-      );
+    while (this.peek().type === TokenType.Operator) {
+      let op = this.operators.get(this.peek().lexeme);
+      if (!op) {
+        throw new ParseError(
+          this.peek(),
+          `Undefined operator "${this.peek().lexeme}"`
+        );
+      }
+      let [opPrecedence, opAssociativity] = op;
 
       // If we encounter a lower-precedence operator, stop consuming tokens
       if (opPrecedence < precedence) break;
@@ -124,7 +135,7 @@ export class Parser extends BaseParser<Stmt[]> {
       let rightOp: Token | null = null;
 
       // Check for an initial operator
-      if (this.operators.has(this.peek().type)) {
+      if (this.peek().type === TokenType.Operator) {
         leftOp = this.advance();
       }
 
@@ -140,7 +151,7 @@ export class Parser extends BaseParser<Stmt[]> {
       let expr = this.expression(0);
 
       // Check for a trailing operator
-      if (this.operators.has(this.peek().type)) {
+      if (this.peek().type === TokenType.Operator) {
         rightOp = this.advance();
       }
 
@@ -157,7 +168,15 @@ export class Parser extends BaseParser<Stmt[]> {
         let operator = leftOp ?? rightOp;
         let side: "left" | "right" = leftOp ? "left" : "right";
 
-        let [precedence] = this.operators.get(operator.type);
+        let op = this.operators.get(operator.lexeme);
+        if (!op) {
+          throw new ParseError(
+            this.peek(),
+            `Undefined operator "${this.peek().lexeme}"`
+          );
+        }
+        let [precedence] = op;
+
         if (expr.type === Expr.Type.Binary && expr.precedence < precedence) {
           throw new ParseError(
             operator,
