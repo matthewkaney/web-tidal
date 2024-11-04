@@ -16,7 +16,7 @@ export class Interpreter {
   ) {}
 
   interpret(statements: Stmt[]) {
-    let results: string[] = [];
+    let results: any[] = [];
 
     try {
       for (let statement of statements) {
@@ -30,7 +30,7 @@ export class Interpreter {
         ) {
           result.runIO();
         } else if (result !== undefined) {
-          results.push(this.stringify(result));
+          results.push(result);
         }
       }
     } catch (error) {
